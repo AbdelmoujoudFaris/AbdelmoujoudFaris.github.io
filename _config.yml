@@ -1,0 +1,442 @@
+# ============================================================
+#  Academic Pages — _config.yml
+#  Abdelmoujoud FARIS — last updated: May 2026
+# ============================================================
+
+# --------------- Basic Site Settings -----------------------
+locale: "en-US"
+site_theme: "default"   # options: "default" | "air" | "sunrise" | "mint" | "dirt" | "contrast"
+title: "Abdelmoujoud Faris"
+title_separator: "-"
+name: &name "Abdelmoujoud Faris"
+description: &description >
+  PhD in Physical Chemistry (Molecular Modeling & Cheminformatics).
+  Research Engineer in Bioinformatics at CNRS / Université de Montpellier – BIOCAMPUS.
+  Specialised in QSAR/CADD, structural bioinformatics, molecular dynamics, and AI-driven drug discovery.
+url: "https://AbdelmoujoudFaris.github.io"
+baseurl: ""
+repository: "AbdelmoujoudFaris/AbdelmoujoudFaris.github.io"
+
+# --------------- Site Author (left-hand sidebar) -----------
+author:
+  # ---- Biographic information ----------------------------
+  avatar: "profile.jpg"    # place your photo as /images/profile.jpg
+  name: "Abdelmoujoud Faris"
+  pronouns: "he/him"
+  bio: >
+    PhD · Computational Chemist & Bioinformatician.
+    Research Engineer in Bioinformatics at CNRS / Université de Montpellier – BIOCAMPUS.
+    Working at the intersection of molecular modelling, cheminformatics, and AI for drug discovery.
+    17 peer-reviewed articles indexed in Scopus & Web of Science.
+  location: "Montpellier, France"
+  employer: "CNRS / Université de Montpellier – BIOCAMPUS"
+  uri: "https://AbdelmoujoudFaris.github.io"
+  email: "abdelmoujoud.faris@usmba.ac.ma"
+
+  # ---- Academic websites ---------------------------------
+  academia:
+  arxiv:
+  googlescholar: "https://scholar.google.com/citations?user=sseRI5sAAAAJ&hl=fr"
+  inspire-hep:
+  impactstory:
+  orcid: "https://orcid.org/0000-0003-0781-6523"
+  semantic:
+  ssrn:
+  pubmed:
+  researchgate: "https://www.researchgate.net/profile/Abdelmoujoud-Faris"
+  scopus:
+  zotero:
+
+  # ---- Repositories & software development ---------------
+  bitbucket:
+  codepen:
+  dribbble:
+  github: "AbdelmoujoudFaris"
+  kaggle:
+  stackoverflow:
+
+  # ---- Social media --------------------------------------
+  artstation:
+  bluesky:
+  facebook:
+  flickr:
+  foursquare:
+  goodreads:
+  google_plus:
+  keybase:
+  instagram: "https://www.instagram.com/moleculemind__/"
+  lastfm:
+  linkedin: "https://www.linkedin.com/in/faris-abdelmoujoud-69b0ab1a7/?skipRedirect=true"
+  mastodon:
+  medium:
+  pinterest:
+  soundcloud:
+  steam:
+  telegram:
+  tumblr:
+  twitter:
+  vine:
+  weibo:
+  wikipedia:
+  xing:
+  youtube: "ChemBioInfo/playlists"    # https://www.youtube.com/@ChemBioInfo/playlists
+  zhihu:
+
+# --------------- Publication categories -------------------
+publication_category:
+  books:
+    title: "Books"
+  manuscripts:
+    title: "Journal Articles"
+  conferences:
+    title: "Conference Papers"
+
+# --------------- Site Settings ----------------------------
+teaser:
+breadcrumbs: false
+words_per_minute: 160
+future: true
+read_more: "disabled"
+talkmap_link: false
+comments:
+  provider:
+  disqus:
+    shortname:
+  discourse:
+    server:
+  facebook:
+    appid:
+    num_posts:
+    colorscheme:
+staticman:
+  allowedFields: ["name", "email", "url", "message"]
+  branch: "gh-pages"
+  commitMessage: "New comment."
+  filename: "comment-{@timestamp}"
+  format: "yml"
+  moderation: true
+  path: "_data/comments/{options.slug}"
+  requiredFields: ["name", "email", "message"]
+  transforms:
+    email: "md5"
+  generatedFields:
+    date:
+      type: "date"
+      options:
+        format: "iso8601"
+atom_feed:
+  hide: false
+  path:
+
+# --------------- SEO Related ------------------------------
+google_site_verification:
+bing_site_verification:
+alexa_site_verification:
+yandex_site_verification:
+
+# --------------- Social sharing / structured data ---------
+twitter:
+  username:
+facebook:
+  username:
+  app_id:
+  publisher:
+og_image:
+og_description:
+social:
+  type: "Person"
+  name: "Abdelmoujoud Faris"
+  links:
+    - "https://orcid.org/0000-0003-0781-6523"
+    - "https://www.researchgate.net/profile/Abdelmoujoud-Faris"
+    - "https://www.linkedin.com/in/faris-abdelmoujoud-69b0ab1a7/"
+    - "https://github.com/AbdelmoujoudFaris"
+    - "https://www.youtube.com/@ChemBioInfo"
+
+# --------------- Analytics --------------------------------
+analytics:
+  provider: false
+  google:
+    tracking_id:
+
+# --------------- Reading Files ----------------------------
+include:
+  - .htaccess
+  - _pages
+  - files
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .github
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+  - CHANGELOG
+  - Capfile
+  - config
+  - Dockerfile
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - local
+  - log
+  - node_modules
+  - package.json*
+  - Rakefile
+  - README
+  - tmp
+  - vendor
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# --------------- Conversion -------------------------------
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# --------------- Markdown Processing ----------------------
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# --------------- Collections ------------------------------
+collections:
+  teaching:
+    output: true
+    permalink: /:collection/:path/
+  publications:
+    output: true
+    permalink: /:collection/:path/
+  portfolio:
+    output: true
+    permalink: /:collection/:path/
+  talks:
+    output: true
+    permalink: /:collection/:path/
+
+# --------------- Page defaults ----------------------------
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+  # _teaching
+  - scope:
+      path: ""
+      type: teaching
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # _publications
+  - scope:
+      path: ""
+      type: publications
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # _portfolio
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true  # was "comment: true" – fixed
+  # _talks
+  - scope:
+      path: ""
+      type: talks
+    values:
+      layout: talk
+      author_profile: true
+      share: true
+
+# --------------- Sass/SCSS --------------------------------
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# --------------- Outputting -------------------------------
+permalink: /:categories/:title/
+timezone: Europe/Paris
+
+# --------------- Plugins ----------------------------------
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+whitelist:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+# --------------- Archives ---------------------------------
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# --------------- HTML Compression ------------------------
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
+
+# ============================================================
+#  NEXT STEPS — files to fill in after this config
+#
+#  _pages/about.md
+#    Write your "About me" paragraph using the PRESENTATION
+#    section of your French CV as a base. Include:
+#      - Current role at CNRS / Université de Montpellier
+#      - Research interests (QSAR, CADD, AlphaFold2, GNN,
+#        RNA–protein modelling, MD simulations, free energy)
+#      - 17 peer-reviewed publications stat
+#      - Links: ORCID | ResearchGate | GitHub | YouTube
+#
+#  files/CV_Faris.pdf  →  upload your PDF CV here so the
+#    sidebar "Download CV" link works
+#
+#  images/profile.png  →  your photo from the French PDF CV
+#
+#  _pages/cv.md
+#    EDUCATION
+#      PhD Physical Chemistry — USMBA, Fès — 2021–2025
+#        Thesis: QSAR Modeling, Molecular Docking & AI for
+#        the Discovery of Therapeutic Molecules
+#        Supervisory lab: LIMAS | co-supervised with France
+#        Teaching: ATER 2021–2024 (chimie théorique,
+#        cristallographie, atomistique, électrochimie)
+#      MSc Theoretical Chemistry & Molecular Modelling
+#        USMBA, Fès — 2019–2021
+#      BSc Physical Chemistry
+#        Faculté des Sciences Ibn Zohr, Agadir — 2018
+#      Baccalauréat SVT — 2014
+#
+#    POSITIONS
+#      Oct 2025–present  Research Engineer in Bioinformatics
+#        CNRS / Université de Montpellier – BIOCAMPUS
+#        → Structural modelling of mono- and bispecific
+#          antibodies; AlphaFold2/3 pipelines; HPC (Slurm)
+#      2024–2025  Cheminformatics & Mol. Modelling Scientist
+#        Université d'Angers – Lab. SONAS
+#        → Virtual screening (COCONUT, ZINC >10M entries);
+#          Python workflow automation; QSAR/SAR 2D/3D;
+#          GNN/DNN/RF/XGBoost; GROMACS/DESMOND MD;
+#          MM/PBSA free energy; 5+ publications
+#      2024  Computational Bioinformatics Researcher
+#        CNRS / Université Paris Cité – Unité BFA
+#        → IDP prediction & modelling; protein–protein
+#          docking (HADDOCK); inhibitory peptide design;
+#          AlphaFold2; reproducible Python/Docker/Snakemake
+#          workflows; HPC
+#      2021–2025  PhD Researcher & ATER
+#        USMBA – Lab. LIMAS, Fès, Morocco
+#        → QSAR/SAR, covalent docking, pharmacophore,
+#          generative AI (GNN, diffusion, VAE);
+#          GROMACS/AMBER MD; MM/PBSA/GBSA; DFT/MEP (Gaussian);
+#          14 peer-reviewed publications; 128 h/yr teaching
+#
+#    SKILLS (from CV page 2 table)
+#      Sequence analysis: UGENE, CLC Genomics, SeqKit,
+#        MMseqs, BLAST, MAFFT, Clustal Omega, MUSCLE,
+#        T-Coffee, Jalview, Expasy Tools
+#      Antibody design: IgFold, DeepAb, RosettaAntibody,
+#        RAbD, ABodyBuilder2, ImmuneBuilder, AbFold, DeepSCAb
+#      AI for proteins: AlphaFold/Multimer, OmegaFold,
+#        ColabFold, AntiBERTy, DeepH3, BioPhi, SAbPred, PEARS
+#      Generative: BoltzGen; Structural: Swiss-Model, MODELLER
+#      Docking/PPI: HADDOCK, ZDOCK, ClusPro
+#      MD: GROMACS, AMBER, DESMOND, OpenMM, Martini CG
+#      Visualisation: PyMOL, ChimeraX, VMD, Discovery Studio
+#      Interface analysis: proABC-2, LigandScout
+#      Epitope/paratope: SCALOP, Discotope, ElliPro, FreeSASA
+#      Databases: UniProt, PDB, PDBbind, OAS, SAbDab, IEDB,
+#        GISAID, ChEMBL, PubChem, ZINC, COCONUT, AlphaFold DB
+#      ML/AI: Python, R, Scikit-learn, PyTorch, GNN, RDKit
+#      CADD: Schrödinger, AutoDock Vina, GOLD, MOE, Gaussian,
+#        CP2K, SYBYL-X, Avogadro, ChemDraw, ChemSketch
+#      QSAR: CORAL, DataWarrior, alvaDesc, KNIME
+#      Docking servers: DiffDock, SwissDock, PatchDock,
+#        FireDock, HDOCK, GalaxyTongDock
+#      HPC: Linux, Slurm, CPU/GPU clusters
+#      DevOps: Bash, Conda, Docker, Jupyter, Snakemake, Git
+#      Languages: French (fluent), English (fluent), Arabic (native)
+#
+#    REFERENCES
+#      Pr. Gautier Moroy — gautier.moroy@u-paris.fr
+#        CNRS / Université Paris Cité – Unité BFA
+#      Pr. Guillaume Viault — guillaume.viault@univ-angers.fr
+#        Université d'Angers
+#      Pr. Ivana Cacciatore — ivana.cacciatore@unich.it
+#        Università G. d'Annunzio, Chieti-Pescara, Italy
+#      Pr. Adnane Aouidate — a.aouidate@uiz.ac.ma
+#        Université Ibn Zohr, Morocco
+#
+#  _publications/  (one .md file per paper — 17 total)
+#    Front-matter template for each file:
+#    ---
+#    title: "Full paper title"
+#    collection: publications
+#    permalink: /publications/year-slug/
+#    excerpt: "One-sentence summary"
+#    date: YYYY-MM-DD
+#    venue: "Journal name"
+#    paperurl: "https://doi.org/10.xxxx/xxxxxx"
+#    citation: "Authors (Year). Title. Journal, vol, pages."
+#    ---
+#    Full abstract or short description here.
+#
+#  _pages/talks.md
+#    List oral and poster communications at international
+#    conferences in computational chemistry / bioinformatics
+#
+#  _pages/teaching.md
+#    ATER 2021–2024 at USMBA — 128 h/year
+#    Courses: theoretical chemistry, crystallography,
+#    atomic physics, electrochemistry
+# ============================================================

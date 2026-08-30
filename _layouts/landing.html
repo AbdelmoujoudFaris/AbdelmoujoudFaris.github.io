@@ -1,0 +1,47 @@
+---
+layout: compress
+---
+
+{% include base_path %}
+
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 }}" class="no-js"{% if site.site_theme == "dark" %} data-theme="dark"{% endif %}>
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/landing.css">
+  </head>
+
+  <body class="lp-page">
+
+    {% include browser-upgrade.html %}
+    {% include landing/background.html %}
+    {% include landing/header.html %}
+
+    {% include landing/hero.html %}
+    {% include landing/sections.html %}
+
+    <div class="lp-lightbox" id="lp-lightbox" hidden>
+      <div class="lp-lightbox__backdrop" data-lightbox-close></div>
+      <div class="lp-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Institution logo">
+        <button type="button" class="lp-lightbox__close" data-lightbox-close aria-label="Close">&times;</button>
+        <img id="lp-lightbox-img" src="" alt="" />
+      </div>
+    </div>
+
+    <div class="page__footer">
+      <footer>
+        {% include footer/custom.html %}
+        {% include footer.html %}
+      </footer>
+    </div>
+
+    {% include scripts.html %}
+    <script type="module" src="{{ base_path }}/assets/js/landing.js"></script>
+
+  </body>
+</html>

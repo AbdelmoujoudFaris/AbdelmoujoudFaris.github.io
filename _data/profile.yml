@@ -1,0 +1,145 @@
+# ============================================================
+#  Data for the landing page (_layouts/landing.html, permalink /)
+#  Real content pulled from site.author / site.description lives
+#  directly in _config.yml — this file only holds content that is
+#  specific to the landing page sections below.
+#
+#  NOTE: Projects were sourced from your public, non-fork GitHub
+#  repositories at github.com/AbdelmoujoudFaris. Add more
+#  experience/education/project entries any time by extending the
+#  lists below.
+# ============================================================
+
+nav:
+  - id: about
+    label: "About"
+  - id: experience
+    label: "Experience"
+  - id: education
+    label: "Education"
+  - id: research
+    label: "Research"
+  - id: projects
+    label: "Projects"
+  - id: skills
+    label: "Skills"
+
+badge: "⏳ Computational Chemistry · Bioinformatics · AI for Drug Discovery"
+
+about: >
+  I am a Computational Chemist, Bioinformatician, and Research Engineer with a
+  PhD in Physical Chemistry, working at the intersection of computational
+  chemistry, structural bioinformatics, molecular modeling, cheminformatics,
+  and AI for drug discovery.
+
+
+  My expertise spans molecular docking, molecular dynamics (GROMACS, AMBER,
+  Desmond, OpenMM), QSAR/SAR, pharmacophore modeling, virtual screening,
+  ADMET, MM-PBSA/MM-GBSA, AlphaFold2, protein–ligand and protein–protein
+  modeling, and antibody design.
+
+
+  I also specialize in Machine Learning, Deep Learning, GNNs, Generative AI,
+  LLMs, RAG, embeddings, vector databases, semantic search, and AI agents for
+  scientific research and automation.
+
+
+  My bioinformatics experience covers RNA-seq, transcriptomics, proteomics,
+  metabolomics, and multi-omics integration, while my software engineering
+  skills include Python, R, Bash, Linux, Git/GitHub, Docker, Snakemake,
+  Flask, R Shiny, APIs, and reproducible computational pipelines.
+
+
+  I combine Computational Chemistry, Bioinformatics, Structural Biology,
+  Molecular Dynamics, AI/ML, LLM/RAG, and Scientific Software Engineering to
+  develop reproducible, intelligent, and scalable solutions for drug
+  discovery and biomedical research.
+
+research_interests:
+  - "Computational Chemistry"
+  - "Bioinformatics"
+  - "Structural Biology"
+  - "Molecular Dynamics"
+  - "Machine Learning"
+  - "Deep Learning"
+  - "GNNs"
+  - "Generative AI"
+  - "LLMs & RAG"
+  - "Scientific AI"
+
+research_note: >
+  17 peer-reviewed articles indexed in Scopus & Web of Science — full list on
+  Google Scholar.
+
+experience:
+  - role: "ML Scientist — Structure-Driven Molecular AI & Drug Design"
+    org: "CNRS / Université de Montpellier – BIOCAMPUS (BacFly)"
+    period: "Oct. 2025 – Present"
+    logo: "/images/logos/biocampus-montpellier.png"
+  - role: "Computational Chemist — QSAR, Docking & ML-Validated Lead Discovery"
+    org: "Université d'Angers – SONAS · Industry partner: Green Impulse"
+    period: "2024 – 2025 (13 months)"
+    logo: "/images/logos/sonas-angers.png"
+  - role: "Computational Biologist — Protein–Ligand Design & Free Energy"
+    org: "CNRS / Université Paris Cité – Unité BFA (CNRS UMR 8251)"
+    period: "2024 (6 months)"
+    logo: "/images/logos/bfa-paris-cite.png"
+  - role: "PhD Researcher — ML for Drug Discovery"
+    org: "Université Sidi Mohamed Ben Abdellah – Lab. LIMAS, Morocco"
+    period: "2021 – 2025"
+    logo: "/images/logos/fsdm-usmba.png"
+    points:
+      - "QSAR 2D/3D, GNN, GOLD/Vina docking, MD (GROMACS/AMBER), MM-GBSA"
+      - "17 publications (10+ first author)"
+      - "HPC/Slurm independent; 128h/year teaching"
+
+education:
+  - degree: "Ph.D., Computational Chemistry — ML & Structure-Based Drug Design"
+    institution: "Univ. SMBA, Morocco (co-supervised: Prof. G. Moroy, CNRS/Univ. Paris Cité)"
+    period: "2021–2025"
+    logo: "/images/logos/fsdm-usmba.png"
+  - degree: "M.Sc., Computational & Structural Chemistry"
+    institution: "Univ. SMBA, Fès"
+    period: "2019–2021"
+    logo: "/images/logos/fsdm-usmba.png"
+  - degree: "Bachelor's Degree in Physical Chemistry"
+    institution: "Faculté des Sciences, Université Ibn Zohr – Agadir"
+    period: "2014–2018"
+    logo: "/images/logos/fsa-agadir.png"
+
+# ---- Sourced from your public, non-fork repositories on GitHub ----
+projects:
+  - name: "ADMET Analyzer"
+    description: "Python tool for ADMET property prediction and analysis in drug-discovery workflows."
+    tags: ["Python", "ADMET", "Drug Discovery"]
+    url: "https://github.com/AbdelmoujoudFaris/ADMET_Analyzer"
+  - name: "Multi-Omics Dataset AI Finder"
+    description: "AI-assisted tool for discovering and analysing multi-omics datasets."
+    tags: ["Python", "Multi-Omics", "AI"]
+    url: "https://github.com/AbdelmoujoudFaris/Multi-Omics-Dataset-AI-Finder"
+  - name: "Free-Energy Landscape & Structural Clustering"
+    description: "PCA-based free-energy landscape analysis and structural clustering for molecular dynamics trajectories."
+    tags: ["Molecular Dynamics", "PCA", "Clustering"]
+    url: "https://github.com/AbdelmoujoudFaris/Free-energy-landscape-principal-component-analysis-and-structural-clustering"
+  - name: "RDKit & Advanced Python"
+    description: "Cheminformatics workflows and advanced Python techniques built on RDKit."
+    tags: ["RDKit", "Cheminformatics", "Python"]
+    url: "https://github.com/AbdelmoujoudFaris/Rdkit-and-advanced-Python"
+
+skills:
+  - category: "Drug Design & Discovery"
+    items: ["Molecular Docking", "QSAR/SAR", "Pharmacophore Modeling", "Virtual Screening", "ADMET Prediction", "Molecular Descriptors", "Structure-Based Drug Design", "Ligand-Based Drug Design", "Protein–Ligand Interaction Analysis"]
+  - category: "Molecular Dynamics & Simulation"
+    items: ["GROMACS", "AMBER", "Desmond", "OpenMM", "CHARMM36m", "Coarse-Grained MD", "Trajectory Analysis", "Energy Minimization", "NVT/NPT Simulations", "RMSD/RMSF Analysis", "Hydrogen-Bond Analysis", "MM-PBSA/MM-GBSA", "Binding Free-Energy Analysis"]
+  - category: "Structural & Molecular Modeling"
+    items: ["AlphaFold2", "AutoDock Vina", "GOLD", "LigandScout", "PyMOL", "RDKit", "Protein–Protein Interaction Modeling", "Antibody Modeling", "Bispecific Antibody Design"]
+  - category: "Machine Learning & AI"
+    items: ["PyTorch", "PyTorch Geometric", "scikit-learn", "Graph Neural Networks (GNNs)", "Explainable AI", "Molecular Representation Learning", "Generative AI"]
+  - category: "Bioinformatics & Multi-Omics"
+    items: ["RNA-seq", "Transcriptomics", "Proteomics", "Metabolomics", "Differential Expression Analysis", "Pathway Enrichment", "DESeq2", "limma", "edgeR", "mixOmics/DIABLO", "MOFA2"]
+  - category: "AI & LLM Technologies"
+    items: ["Large Language Models (LLMs)", "Retrieval-Augmented Generation (RAG)", "Embeddings", "Vector Databases", "Semantic Search", "Prompt Engineering", "AI Agents", "AI-Assisted Research Automation"]
+  - category: "Software Engineering"
+    items: ["Python", "R", "Bash", "Linux", "Git/GitHub", "Docker", "Conda", "Snakemake", "Flask", "R Shiny", "Jupyter", "APIs", "Reproducible Pipelines"]
+  - category: "Scientific Databases & Resources"
+    items: ["Coconut", "LOTUS", "NPAtlas", "NPASS", "ZINC"]
