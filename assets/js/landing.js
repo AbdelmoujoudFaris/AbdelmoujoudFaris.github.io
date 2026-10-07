@@ -94,6 +94,77 @@
     });
   }
 
+  /* Door transition: clicking a nav link "enters" the panel through double
+     doors that close over the current view and open onto the target one.
+     ------------------------------------------------------------------ */
+  const doorStage = document.createElement("div");
+  doorStage.className = "lp-door";
+  doorStage.setAttribute("aria-hidden", "true");
+  doorStage.innerHTML =
+    '<div class="lp-door__shade"></div>' +
+    '<div class="lp-door__leaf lp-door__leaf--l"></div>' +
+    '<div class="lp-door__leaf lp-door__leaf--r"></div>';
+  document.body.appendChild(doorStage);
+
+  const DOOR_CLOSE_MS = 420; // keep in sync with landing.css
+  const DOOR_OPEN_MS = 620;
+  const doorReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let doorBusy = false;
+
+  const setActiveNav = (id) => {
+    document.querySelectorAll(".lp-nav__link").forEach((link) => {
+      link.classList.toggle("is-active", link.dataset.navId === id);
+    });
+  };
+
+  const runDoors = (midAction) => {
+    if (doorReducedMotion) {
+      midAction();
+      return;
+    }
+    doorBusy = true;
+    doorStage.classList.add("is-active", "is-closing");
+    window.setTimeout(() => {
+      midAction();
+      doorStage.classList.remove("is-closing");
+      doorStage.classList.add("is-opening");
+      window.setTimeout(() => {
+        doorStage.classList.remove("is-opening", "is-active");
+        doorBusy = false;
+      }, DOOR_OPEN_MS);
+    }, DOOR_CLOSE_MS);
+  };
+
+  const enterPanel = (id) => {
+    const target = document.getElementById(id);
+    if (!target || doorBusy || location.hash === "#" + id) return;
+    runDoors(() => {
+      target.scrollIntoView({ behavior: "instant", block: "start" });
+      history.pushState(null, "", "#" + id);
+      setActiveNav(id);
+    });
+  };
+
+  document
+    .querySelectorAll('a.lp-nav__link[href^="#"], a.lp-scroll-cue[href^="#"]')
+    .forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const id = (link.getAttribute("href") || "").slice(1);
+        if (!id || !document.getElementById(id)) return;
+        event.preventDefault();
+        enterPanel(id);
+      });
+    });
+
+  window.addEventListener("hashchange", () => {
+    const id = location.hash.slice(1);
+    if (!id || !document.getElementById(id) || doorBusy) return;
+    runDoors(() => {
+      document.getElementById(id).scrollIntoView({ behavior: "instant", block: "start" });
+      setActiveNav(id);
+    });
+  });
+
   /* Constellation background
      ------------------------------------------------------------------ */
   const canvas = document.getElementById("lp-constellation");

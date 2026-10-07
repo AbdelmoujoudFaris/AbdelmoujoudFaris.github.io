@@ -780,7 +780,7 @@ body.lp-page .page__footer a {
 
 @media (prefers-reduced-motion: no-preference) {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
 }
 
@@ -788,4 +788,144 @@ body.lp-page a:focus-visible,
 body.lp-page button:focus-visible {
   outline: 2px solid var(--lp-accent-cyan);
   outline-offset: 2px;
+}
+
+/*
+   Door transition: clicking a nav link "enters" the panel through double
+   doors that close over the current view, jump to the panel behind them,
+   then swing open. Injected/animated by landing.js.
+   ========================================================================== */
+
+.lp-door {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  perspective: 1600px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.lp-door.is-active {
+  visibility: visible;
+}
+
+.lp-door__shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 8, 20, 0.6);
+  opacity: 0;
+}
+
+.lp-door__leaf {
+  position: absolute;
+  top: 0;
+  width: 50.6%;
+  height: 100%;
+  background: linear-gradient(175deg, #232a45 0%, #171c33 45%, #10142a 100%);
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.55);
+  backface-visibility: hidden;
+}
+
+.lp-door__leaf--l {
+  left: 0;
+  transform-origin: left center;
+  transform: rotateY(-97deg);
+  border-right: 1px solid rgba(0, 0, 0, 0.55);
+}
+
+.lp-door__leaf--r {
+  right: 0;
+  transform-origin: right center;
+  transform: rotateY(97deg);
+  border-left: 1px solid rgba(0, 0, 0, 0.55);
+}
+
+.lp-door__leaf::before {
+  content: "";
+  position: absolute;
+  inset: 7% 12%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.35);
+}
+
+.lp-door__leaf::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 54px;
+  margin-top: -27px;
+  border-radius: 999px;
+  background: var(--lp-gold);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.lp-door__leaf--l::after {
+  right: 5%;
+}
+
+.lp-door__leaf--r::after {
+  left: 5%;
+}
+
+@keyframes lp-door-shade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lp-door-shade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes lp-door-close-l {
+  from { transform: rotateY(-97deg); }
+  to { transform: rotateY(0); }
+}
+
+@keyframes lp-door-close-r {
+  from { transform: rotateY(97deg); }
+  to { transform: rotateY(0); }
+}
+
+@keyframes lp-door-open-l {
+  from { transform: rotateY(0); }
+  to { transform: rotateY(-97deg); }
+}
+
+@keyframes lp-door-open-r {
+  from { transform: rotateY(0); }
+  to { transform: rotateY(97deg); }
+}
+
+/* durations must stay in sync with DOOR_CLOSE_MS / DOOR_OPEN_MS in landing.js */
+.lp-door.is-closing .lp-door__shade {
+  animation: lp-door-shade-in 0.42s ease forwards;
+}
+
+.lp-door.is-closing .lp-door__leaf--l {
+  animation: lp-door-close-l 0.42s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+}
+
+.lp-door.is-closing .lp-door__leaf--r {
+  animation: lp-door-close-r 0.42s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+}
+
+.lp-door.is-opening .lp-door__shade {
+  animation: lp-door-shade-out 0.56s 0.05s ease forwards;
+}
+
+.lp-door.is-opening .lp-door__leaf--l {
+  animation: lp-door-open-l 0.56s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+}
+
+.lp-door.is-opening .lp-door__leaf--r {
+  animation: lp-door-open-r 0.56s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-door {
+    display: none;
+  }
 }
