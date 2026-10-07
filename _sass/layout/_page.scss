@@ -16,6 +16,33 @@
   }
 }
 
+/* Large desktop shell tiers — keep in sync with _masthead, _navigation,
+   _footer and assets/css/landing.css. Appended after the rules above so
+   they win the cascade at every tier. */
+@include breakpoint(1200px) {
+  #main {
+    max-width: 1200px;
+  }
+}
+
+@include breakpoint(1440px) {
+  #main {
+    max-width: 1320px;
+  }
+}
+
+@include breakpoint(1600px) {
+  #main {
+    max-width: 1440px;
+  }
+}
+
+@include breakpoint(1840px) {
+  #main {
+    max-width: 1560px;
+  }
+}
+
 .page {
   @include breakpoint($large) {
     @include span(10 of 12 last);

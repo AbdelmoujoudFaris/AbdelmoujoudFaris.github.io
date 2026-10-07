@@ -44,6 +44,32 @@
   }
 }
 
+/* Large desktop shell tiers — keep in sync with _page, _navigation,
+   _footer and assets/css/landing.css. */
+@include breakpoint(1200px) {
+  .masthead__inner-wrap {
+    max-width: 1200px;
+  }
+}
+
+@include breakpoint(1440px) {
+  .masthead__inner-wrap {
+    max-width: 1320px;
+  }
+}
+
+@include breakpoint(1600px) {
+  .masthead__inner-wrap {
+    max-width: 1440px;
+  }
+}
+
+@include breakpoint(1840px) {
+  .masthead__inner-wrap {
+    max-width: 1560px;
+  }
+}
+
 .masthead__menu {
 
   ul {

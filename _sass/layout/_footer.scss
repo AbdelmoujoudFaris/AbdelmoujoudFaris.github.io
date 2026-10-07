@@ -57,6 +57,33 @@
   }
 }
 
+/* Large desktop shell tiers — keep in sync with _page, _masthead,
+   _navigation and assets/css/landing.css. Nested inside `.page__footer`
+   the rule above would otherwise stay capped at $x-large. */
+@include breakpoint(1200px) {
+  .page__footer footer {
+    max-width: 1200px;
+  }
+}
+
+@include breakpoint(1440px) {
+  .page__footer footer {
+    max-width: 1320px;
+  }
+}
+
+@include breakpoint(1600px) {
+  .page__footer footer {
+    max-width: 1440px;
+  }
+}
+
+@include breakpoint(1840px) {
+  .page__footer footer {
+    max-width: 1560px;
+  }
+}
+
 .page__footer-copyright {
   font-family: $global-font-family;
   font-size: $type-size-7;

@@ -753,6 +753,115 @@ body.lp-page .page__footer a {
 }
 
 /*
+   Large desktop layout
+   ==========================================================================
+   Progressive tiers so wide screens use their extra room instead of leaving
+   dead gutters, while keeping readable line lengths. The shell tiers are
+   shared with the theme container rules in _sass/layout/ (_page, _masthead,
+   _navigation, _footer) and must stay in sync:
+     1200 / 1320 / 1440 / 1560 px at min-width 1200 / 1440 / 1600 / 1840 px.
+   The header adds its own 3rem horizontal padding (border-box) via calc() so
+   its content edges line up with .lp-hero__inner / .lp-section__inner.
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+  /* Fixed track counts: auto-fit left uneven leftovers (3+3+2 skills,
+     3+1 projects) on wide screens. 2-up until 1440, then 4-up (8 skills
+     and 4 projects both divide evenly). */
+  .lp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .lp-header__inner {
+    max-width: calc(1200px + 3rem);
+  }
+
+  .lp-hero__inner,
+  .lp-section__inner {
+    max-width: 1200px;
+  }
+
+  /* About narrative reads better in two balanced columns than as one
+     extra-wide paragraph block. */
+  .lp-about-card {
+    columns: 2;
+    column-gap: 2.75rem;
+  }
+
+  .lp-about-card p {
+    break-inside: avoid;
+  }
+
+  /* 4 career entries -> 2 + 2; 3 degrees -> 1 + 1 + 1 (keeps bullet and
+     degree text to a comfortable line length). */
+  #experience .lp-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  #education .lp-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .lp-header__inner {
+    max-width: calc(1320px + 3rem);
+  }
+
+  .lp-hero__inner,
+  .lp-section__inner {
+    max-width: 1320px;
+  }
+
+  .lp-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lp-hero__avatar-ring img {
+    width: 272px;
+    height: 272px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .lp-header__inner {
+    max-width: calc(1440px + 3rem);
+  }
+
+  .lp-hero__inner,
+  .lp-section__inner {
+    max-width: 1440px;
+  }
+
+  .lp-hero__avatar-ring img {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 1840px) {
+  .lp-header__inner {
+    max-width: calc(1560px + 3rem);
+  }
+
+  .lp-hero__inner,
+  .lp-section__inner {
+    max-width: 1560px;
+  }
+
+  .lp-hero__avatar-ring img {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+/*
    Motion & accessibility
    ========================================================================== */
 

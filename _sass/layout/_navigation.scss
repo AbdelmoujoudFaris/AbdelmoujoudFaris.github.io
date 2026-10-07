@@ -51,6 +51,32 @@
   }
 }
 
+/* Large desktop shell tiers — keep in sync with _page, _masthead,
+   _footer and assets/css/landing.css. */
+@include breakpoint(1200px) {
+  .breadcrumbs {
+    max-width: 1200px;
+  }
+}
+
+@include breakpoint(1440px) {
+  .breadcrumbs {
+    max-width: 1320px;
+  }
+}
+
+@include breakpoint(1600px) {
+  .breadcrumbs {
+    max-width: 1440px;
+  }
+}
+
+@include breakpoint(1840px) {
+  .breadcrumbs {
+    max-width: 1560px;
+  }
+}
+
 
 /*
    Post pagination navigation links
