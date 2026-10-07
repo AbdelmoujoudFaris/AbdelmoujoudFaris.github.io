@@ -27,33 +27,56 @@ nav:
 badge: "⏳ Computational Chemistry · Bioinformatics · AI for Drug Discovery"
 
 about: >
-  I am a Computational Chemist, Bioinformatician, and Research Engineer with a
-  PhD in Physical Chemistry, working at the intersection of computational
-  chemistry, structural bioinformatics, molecular modeling, cheminformatics,
-  and AI for drug discovery.
+  I am a Computational Scientist, Bioinformatician and Computational Chemist —
+  with a PhD in Physical Chemistry — working at the intersection of
+  multi-omics, structural biology, molecular modelling, AI and drug discovery.
+  My work spans both ends of that range: systems-level analysis of biological
+  data and molecular-level modelling of the proteins and ligands involved.
 
 
-  My expertise spans molecular docking, molecular dynamics (GROMACS, AMBER,
-  Desmond, OpenMM), QSAR/SAR, pharmacophore modeling, virtual screening,
-  ADMET, MM-PBSA/MM-GBSA, AlphaFold2, protein–ligand and protein–protein
-  modeling, and antibody design.
+  On the molecular side, I work with molecular docking, structure- and
+  ligand-based drug design, QSAR/SAR, pharmacophore modelling, virtual
+  screening, ADMET prediction, molecular dynamics and free-energy analysis
+  (MM-PBSA/MM-GBSA, conformational analysis, PCA free-energy landscapes,
+  structural clustering) — using RDKit, PyMOL, GROMACS, AMBER/AmberTools,
+  OpenMM, Desmond, AutoDock Vina and GOLD. I also analyse protein–protein
+  interactions with AlphaFold/AlphaFold-Multimer, molecular-dynamics
+  refinement, residue-level interaction analysis and free-energy
+  decomposition: a representative example is my work on JAK3/JAK1, where
+  structural modelling, AlphaFold-based complex prediction, molecular
+  dynamics, interaction analysis and free-energy decomposition come together
+  to identify key interface residues and derive structure-based pharmacophore
+  hypotheses.
 
 
-  I also specialize in Machine Learning, Deep Learning, GNNs, Generative AI,
-  LLMs, RAG, embeddings, vector databases, semantic search, and AI agents for
-  scientific research and automation.
+  On the bioinformatics side, I analyse transcriptomic and multi-omics data:
+  RNA-seq, differential expression (DESeq2, edgeR, limma), pathway and
+  gene-set enrichment (GSEA, clusterProfiler), co-expression and network
+  analysis (Cytoscape) and functional interpretation — including
+  transcriptomic analyses of JAK/STAT signaling. I work across
+  transcriptomics, proteomics and metabolomics, using integration approaches
+  such as mixOmics/DIABLO and MOFA2 alongside PCA, PLS-DA, clustering and
+  correlation analysis, to move from processed biological datasets toward
+  interpretable biological mechanisms.
 
 
-  My bioinformatics experience covers RNA-seq, transcriptomics, proteomics,
-  metabolomics, and multi-omics integration, while my software engineering
-  skills include Python, R, Bash, Linux, Git/GitHub, Docker, Snakemake,
-  Flask, R Shiny, APIs, and reproducible computational pipelines.
+  My main strength is bridging computational scales: omics → pathways →
+  networks → proteins → structures → molecular interactions → drug
+  candidates. A project can enter this workflow at any point — a
+  transcriptomic signature can be traced through enrichment and network
+  analysis to candidate proteins, then taken into structural modelling,
+  molecular dynamics and interaction analysis, and where relevant into
+  structure-based drug or peptide design. I combine this with machine
+  learning (Random Forest, XGBoost, neural and graph neural networks, PyTorch,
+  PyTorch Geometric), explainable AI (SHAP) and generative-AI tooling (LLMs,
+  embeddings, RAG, vector databases, AI agents), with a focus on AI for drug
+  discovery, molecular modelling, bioinformatics and scientific automation.
 
 
-  I combine Computational Chemistry, Bioinformatics, Structural Biology,
-  Molecular Dynamics, AI/ML, LLM/RAG, and Scientific Software Engineering to
-  develop reproducible, intelligent, and scalable solutions for drug
-  discovery and biomedical research.
+  I build the software behind this work: reproducible Python/R pipelines and
+  scientific tools built with Bash, Linux, Git, Docker, Conda, Snakemake,
+  APIs, R Shiny, Jupyter and HPC/Slurm — from raw data to analysis, automated
+  where it makes sense.
 
 research_interests:
   - "Computational Chemistry"
