@@ -38,7 +38,7 @@
       document.getElementById("gh-total").textContent = total.toLocaleString("en-US");
       var M = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
       var first = new Date(days[0].date + "T00:00:00");
-      var pad = first.getDay();                       // weeks start on Sunday, like GitHub
+      var pad = first.getDay();
       var graph = document.getElementById("gh-graph");
       var months = document.createElement("div"); months.className = "gh-months";
       var dayl = document.createElement("div"); dayl.className = "gh-days";
