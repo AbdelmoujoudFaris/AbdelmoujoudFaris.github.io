@@ -1,0 +1,72 @@
+<!-- GitHub-style contribution graph (same data GitHub shows publicly), rendered live -->
+<section class="gh-contrib" aria-label="GitHub contributions">
+  <div class="gh-card">
+    <h2 class="gh-title"><span id="gh-total">…</span> contributions in the last year</h2>
+    <div class="gh-scroll"><div class="gh-graph" id="gh-graph"></div></div>
+    <div class="gh-foot">
+      <a href="https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile" target="_blank" rel="noopener">Learn how we count contributions</a>
+      <span class="gh-legend">Less <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> More</span>
+    </div>
+  </div>
+</section>
+<style>
+  .gh-contrib { position: relative; max-width: 1100px; margin: 1.5rem auto 0; padding: 0 1.5rem; }
+  .gh-card { background: #fff; color: #1f2328; border: 1px solid #d0d7de; border-radius: 8px; padding: 16px;
+             font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .gh-title { font-size: 16px; font-weight: 400; margin: 0 0 8px; color: #1f2328; }
+  .gh-scroll { overflow-x: auto; }
+  .gh-graph { display: grid; grid-template-columns: 28px auto; width: max-content; margin: 0 auto; }
+  .gh-months { grid-column: 2; display: grid; grid-auto-flow: column; grid-auto-columns: 13px; height: 15px; color: #1f2328; }
+  .gh-days { display: grid; grid-template-rows: repeat(7, 13px); color: #1f2328; line-height: 10px; }
+  .gh-cells { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 10px); grid-auto-columns: 10px; gap: 3px; }
+  .gh-cells i, .gh-legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block;
+                               outline: 1px solid rgba(27,31,36,.06); outline-offset: -1px; }
+  .l0 { background: #ebedf0; } .l1 { background: #9be9a8; } .l2 { background: #40c463; }
+  .l3 { background: #30a14e; } .l4 { background: #216e39; }
+  .gh-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; color: #59636e; flex-wrap: wrap; gap: 6px; }
+  .gh-foot a { color: #59636e; text-decoration: none; } .gh-foot a:hover { color: #0969da; }
+  .gh-legend i { margin: 0 1px; vertical-align: middle; }
+</style>
+<script>
+(function () {
+  var user = "AbdelmoujoudFaris";
+  fetch("https://github-contributions-api.jogruber.de/v4/" + user + "?y=last")
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      var days = d.contributions, total = d.total.lastYear;
+      document.getElementById("gh-total").textContent = total.toLocaleString("en-US");
+      var M = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      var first = new Date(days[0].date + "T00:00:00");
+      var pad = first.getDay();                       // weeks start on Sunday, like GitHub
+      var graph = document.getElementById("gh-graph");
+      var months = document.createElement("div"); months.className = "gh-months";
+      var dayl = document.createElement("div"); dayl.className = "gh-days";
+      ["", "Mon", "", "Wed", "", "Fri", ""].forEach(function (t) { var s = document.createElement("span"); s.textContent = t; dayl.appendChild(s); });
+      var cells = document.createElement("div"); cells.className = "gh-cells";
+      for (var p = 0; p < pad; p++) { var e = document.createElement("i"); e.style.visibility = "hidden"; cells.appendChild(e); }
+      var weeks = Math.ceil((pad + days.length) / 7), lastMonth = -1;
+      for (var w = 0; w < weeks; w++) {
+        var label = document.createElement("span");
+        var idx = w * 7 - pad, dd = days[Math.max(idx, 0)];
+        if (dd) {
+          var m = new Date(dd.date + "T00:00:00").getMonth();
+          if (m !== lastMonth && (idx >= 0 || w === 0)) { if (w < weeks - 2) label.textContent = M[m]; lastMonth = m; }
+        }
+        months.appendChild(label);
+      }
+      days.forEach(function (x) {
+        var c = document.createElement("i");
+        c.className = "l" + x.level;
+        var dt = new Date(x.date + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric" });
+        c.title = (x.count ? x.count : "No") + " contribution" + (x.count === 1 ? "" : "s") + " on " + dt + ".";
+        cells.appendChild(c);
+      });
+      graph.appendChild(document.createElement("span"));
+      graph.appendChild(months); graph.appendChild(dayl); graph.appendChild(cells);
+    })
+    .catch(function () {
+      document.querySelector(".gh-contrib").innerHTML =
+        '<a href="https://github.com/' + user + '"><img src="https://ghchart.rshah.org/' + user + '" style="width:100%" alt="GitHub contributions"></a>';
+    });
+})();
+</script>
