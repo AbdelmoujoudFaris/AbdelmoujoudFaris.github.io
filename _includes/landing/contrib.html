@@ -1,4 +1,5 @@
-<!-- GitHub-style contribution graph (same data GitHub shows publicly), rendered live -->
+{% include base_path %}
+<!-- GitHub contribution graph: data from GitHub's own calendar (scripts/update_contrib.py, refreshed by Actions) -->
 <section class="gh-contrib" aria-label="GitHub contributions">
   <div class="gh-card">
     <h2 class="gh-title"><span id="gh-total">…</span> contributions in the last year</h2>
@@ -30,10 +31,10 @@
 <script>
 (function () {
   var user = "AbdelmoujoudFaris";
-  fetch("https://github-contributions-api.jogruber.de/v4/" + user + "?y=last")
+  fetch("{{ base_path }}/assets/data/contrib.json?" + Date.now())
     .then(function (r) { return r.json(); })
     .then(function (d) {
-      var days = d.contributions, total = d.total.lastYear;
+      var days = d.contributions, total = d.total;
       document.getElementById("gh-total").textContent = total.toLocaleString("en-US");
       var M = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
       var first = new Date(days[0].date + "T00:00:00");
