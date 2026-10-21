@@ -1,62 +1,99 @@
 {% include base_path %}
+{% assign p = site.data.profile %}
+{% assign current_role = p.experience[0] %}
 
-<section class="lp-hero" id="hero">
-  <div class="lp-hero__inner">
-    <div class="lp-hero__avatar-col">
-      <span class="lp-hero__avatar-ring">
+<section class="hero" id="about">
+  {% include landing/background.html %}
+  <div class="container hero__inner">
+    <div class="hero__profile">
+      <div class="hero__avatar">
         {% if site.author.avatar contains "://" %}
-          <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}" fetchpriority="high" width="240" height="240" />
+          <img src="{{ site.author.avatar }}" alt="Portrait of {{ site.author.name }}" width="168" height="168" fetchpriority="high" />
         {% else %}
-          <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" fetchpriority="high" width="240" height="240" />
+          <img src="{{ site.author.avatar | prepend: '/images/' | relative_url }}" alt="Portrait of {{ site.author.name }}" width="168" height="168" fetchpriority="high" />
         {% endif %}
-      </span>
-    </div>
+      </div>
 
-    <div class="lp-hero__content">
-      {% assign current_role = site.data.profile.experience[0] %}
-      <p class="lp-badge">{{ site.data.profile.badge }}</p>
+      <h1 class="hero__name">{{ site.author.name }}<span class="hero__degree">, PhD</span></h1>
+      <p class="hero__role">{{ p.role }}</p>
+      <p class="hero__affiliation">{{ current_role.role }}<br /><span>{{ current_role.org }}</span></p>
+      {% if site.author.location %}
+        <p class="hero__location">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          {{ site.author.location }}
+        </p>
+      {% endif %}
 
-      <h1 class="lp-hero__name">{{ site.author.name }}</h1>
-      <p class="lp-hero__title">Computational Chemist &amp; Bioinformatician</p>
-      <p class="lp-hero__affiliation">{{ current_role.role }} · {{ current_role.org }}</p>
-      <p class="lp-hero__location">📍 {{ site.author.location }}</p>
-
-      <div class="lp-social" role="list">
+      <ul class="hero__social" aria-label="Professional profiles">
         {% if site.author.email %}
-          <a class="lp-social__btn" href="mailto:{{ site.author.email }}" role="listitem" aria-label="Email">
-            <i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Email</span>
-          </a>
+        <li><a href="mailto:{{ site.author.email }}" aria-label="Email Abdelmoujoud Faris">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a></li>
         {% endif %}
         {% if site.author.github %}
-          <a class="lp-social__btn" href="https://github.com/{{ site.author.github }}" role="listitem" aria-label="GitHub" target="_blank" rel="noopener">
-            <i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span>
-          </a>
-        {% endif %}
-        {% if site.author.linkedin %}
-          <a class="lp-social__btn" href="{{ site.author.linkedin }}" role="listitem" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span>
-          </a>
-        {% endif %}
-        {% if site.author.researchgate %}
-          <a class="lp-social__btn" href="{{ site.author.researchgate }}" role="listitem" aria-label="ResearchGate" target="_blank" rel="noopener">
-            <i class="fa-brands fa-researchgate" aria-hidden="true"></i><span>ResearchGate</span>
-          </a>
+        <li><a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a></li>
         {% endif %}
         {% if site.author.orcid %}
-          <a class="lp-social__btn" href="{{ site.author.orcid }}" role="listitem" aria-label="ORCID" target="_blank" rel="noopener">
-            <i class="ai ai-orcid" aria-hidden="true"></i><span>ORCID</span>
-          </a>
+        <li><a href="{{ site.author.orcid }}" target="_blank" rel="noopener" aria-label="ORCID (opens in a new tab)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zM8.1 17.5H6.6V7.8h1.5v9.7zM7.3 6.7a.95.95 0 1 1 0-1.9.95.95 0 0 1 0 1.9zm4.1 10.8h-1.5V7.8h4.5c2.6 0 4.3 1.7 4.3 4.8 0 3.2-1.9 4.9-4.6 4.9h-2.7zm0-8.3v6.9h1.4c1.9 0 2.9-1.2 2.9-3.5 0-2.2-1-3.4-2.9-3.4h-1.4z"/></svg>
+        </a></li>
         {% endif %}
-        {% if site.author.youtube %}
-          <a class="lp-social__btn" href="https://www.youtube.com/@{{ site.author.youtube }}" role="listitem" aria-label="YouTube" target="_blank" rel="noopener">
-            <i class="fa-brands fa-youtube" aria-hidden="true"></i><span>YouTube</span>
-          </a>
+        {% if site.author.linkedin %}
+        <li><a href="{{ site.author.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.1c.5-.9 1.8-1.9 3.6-1.9 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.5-2.2 2.9V21h-4V9z"/></svg>
+        </a></li>
         {% endif %}
+        {% if site.author.researchgate %}
+        <li><a href="{{ site.author.researchgate }}" target="_blank" rel="noopener" aria-label="ResearchGate (opens in a new tab)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.6 4.4A10 10 0 0 0 12 1.5 10.6 10.6 0 0 0 1.5 12 10.6 10.6 0 0 0 12 22.5c3 0 5.6-1 7.6-2.9A10.4 10.4 0 0 0 22.5 12c0-3-1-5.6-2.9-7.6zM9.7 17.5H7.9V7.9h1.8v9.6zm-.9-10.8a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2zm9.5 10.8h-1.9v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.4-2 2.7v5.2h-1.9V7.9h1.8v1.4h.1c.3-.6 1-1.5 2.3-1.5 2.4 0 2.9 1.6 2.9 3.8v5.9z"/></svg>
+        </a></li>
+        {% endif %}
+        {% if site.author.googlescholar %}
+        <li><a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener" aria-label="Google Scholar (opens in a new tab)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1 8l4 2.2V16c0 .4.2.7.5.9 2 1.2 4.2 1.8 6.5 1.8s4.5-.6 6.5-1.8c.3-.2.5-.5.5-.9v-5.8L21 9v6h1V8L12 2zm5.5 13.4c-1.6.9-3.5 1.4-5.5 1.4s-3.9-.5-5.5-1.4v-4.2l5.5 3 5.5-3v4.2z"/></svg>
+        </a></li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow">{{ p.headline }}</p>
+      <p class="hero__intro">{{ p.intro }}</p>
+      <p class="hero__lede">{{ p.hero_secondary }}</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#research">
+          Explore My Research
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="{{ '/cv/' | relative_url }}">
+          View My CV
+        </a>
+      </div>
+
+      <div class="hero__facts">
+        <div class="hero-fact">
+          <h2 class="hero-fact__title">Research Interests</h2>
+          <ul class="hero-fact__list">
+            {% for interest in p.research_interests limit:4 %}
+              <li>{{ interest }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="hero-fact">
+          <h2 class="hero-fact__title">Education</h2>
+          <ul class="hero-fact__edu">
+            {% for edu in p.education %}
+              <li>
+                <span class="hero-fact__degree">{{ edu.degree }}</span>
+                <span class="hero-fact__meta">{{ edu.institution }} · {{ edu.period }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-
-  <a class="lp-scroll-cue" href="#about" aria-label="Scroll to About section">
-    <span>⌄</span>
-  </a>
 </section>

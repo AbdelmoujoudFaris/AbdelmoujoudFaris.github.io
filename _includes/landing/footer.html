@@ -1,0 +1,11 @@
+<footer class="lp-footer site-footer">
+  <div class="container footer-grid">
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. Built with Jekyll &amp; AcademicPages.</p>
+    <ul class="footer-links">
+      <li><a href="{{ '/publications/' | relative_url }}">Publications</a></li>
+      <li><a href="{{ '/cv/' | relative_url }}">CV</a></li>
+      {% if site.author.github %}<li><a href="https://github.com/{{ site.author.github }}" rel="noopener">GitHub</a></li>{% endif %}
+      <li><a href="{{ '/' | relative_url }}#about">Back to top</a></li>
+    </ul>
+  </div>
+</footer>

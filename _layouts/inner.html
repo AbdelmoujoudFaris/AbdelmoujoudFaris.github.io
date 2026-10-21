@@ -1,0 +1,43 @@
+---
+layout: compress
+---
+
+{% include base_path %}
+
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/landing.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  </head>
+
+  <body class="lp-page">
+
+    {% include browser-upgrade.html %}
+    {% include landing/header.html %}
+
+    <div id="main" role="main" class="inner-main">
+      <section class="section">
+        <div class="container inner-page">
+          {% if page.title %}
+            <p class="section__eyebrow">{{ page.eyebrow | default: "Abdelmoujoud Faris" }}</p>
+            <h1 class="section__title">{{ page.title }}</h1>
+          {% endif %}
+          <div class="inner-page__content">
+            {{ content }}
+          </div>
+        </div>
+      </section>
+    </div>
+
+    {% include landing/footer.html %}
+
+    <script src="{{ '/assets/js/landing.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+
+  </body>
+</html>

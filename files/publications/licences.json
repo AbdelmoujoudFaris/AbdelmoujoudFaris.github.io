@@ -1,0 +1,29 @@
+{
+ "2024-3d-computer-modeling-of-inhibitors-targeting-the-mcf-7-breast-cancer-c.pdf": {
+  "doi": "10.3389/fchem.2024.1384832",
+  "source_url": "https://www.frontiersin.org/journals/chemistry/articles/10.3389/fchem.2024.1384832/pdf",
+  "license": "cc-by",
+  "version": "publishedVersion",
+  "sha256": "19f63f6e37caff9e107be29482c0c94c5798a91d8298142118b8c9381e2712dc",
+  "bytes": 3479891,
+  "downloaded": "2026-10-21"
+ },
+ "2024-computational-insights-into-rational-design-and-virtual-screening-of-p.pdf": {
+  "doi": "10.3389/fchem.2024.1425220",
+  "source_url": "https://www.frontiersin.org/journals/chemistry/articles/10.3389/fchem.2024.1425220/pdf",
+  "license": "cc-by",
+  "version": "publishedVersion",
+  "sha256": "4453bffb496311366210b5d26476aee7ff539df3b0915fecbc7116acb433d2b9",
+  "bytes": 10929816,
+  "downloaded": "2026-10-21"
+ },
+ "2024-revealing-innovative-jak1-and-jak3-inhibitors-a-comprehensive-study-ut.pdf": {
+  "doi": "10.3389/fmolb.2024.1348277",
+  "source_url": "https://www.frontiersin.org/journals/molecular-biosciences/articles/10.3389/fmolb.2024.1348277/pdf",
+  "license": "cc-by",
+  "version": "publishedVersion",
+  "sha256": "e088738908d25b667bdad84e809706b50b8b996382d9ff7ece622e553ea2f71d",
+  "bytes": 7546887,
+  "downloaded": "2026-10-21"
+ }
+}

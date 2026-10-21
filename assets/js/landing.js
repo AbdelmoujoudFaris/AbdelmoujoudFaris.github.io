@@ -1,295 +1,185 @@
-/* ==========================================================================
-   Landing page behaviour: mobile nav toggle, scroll-spy active link, and a
-   lightweight molecular/constellation canvas background. Vanilla JS only —
-   the theme's dark-mode toggle (#theme-toggle / #theme-icon) is already
-   wired up globally by assets/js/_main.js.
-   ========================================================================== */
-
-(() => {
+(function () {
   "use strict";
 
-  /* Mobile nav toggle
-     ------------------------------------------------------------------ */
-  const burger = document.getElementById("lp-nav-burger");
-  const navLinks = document.getElementById("lp-nav-links");
+  var docEl = document.documentElement;
+  var THEME_KEY = "af-theme";
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (burger && navLinks) {
-    burger.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("is-open");
-      burger.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("is-open");
-        burger.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-
-  /* Logo lightbox: click a small institution logo to view it larger
-     ------------------------------------------------------------------ */
-  const lightbox = document.getElementById("lp-lightbox");
-  const lightboxImg = document.getElementById("lp-lightbox-img");
-
-  if (lightbox && lightboxImg) {
-    let lastTrigger = null;
-
-    const openLightbox = (trigger) => {
-      const img = trigger.querySelector("img");
-      if (!img) return;
-      lastTrigger = trigger;
-      lightboxImg.src = img.src;
-      lightboxImg.alt = trigger.getAttribute("aria-label") || "";
-      lightbox.hidden = false;
-      document.body.style.overflow = "hidden";
-      lightbox.querySelector(".lp-lightbox__close").focus();
-    };
-
-    const closeLightbox = () => {
-      lightbox.hidden = true;
-      lightboxImg.src = "";
-      document.body.style.overflow = "";
-      if (lastTrigger) lastTrigger.focus();
-    };
-
-    document.querySelectorAll(".lp-timeline__logo").forEach((btn) => {
-      btn.addEventListener("click", () => openLightbox(btn));
-    });
-
-    lightbox.querySelectorAll("[data-lightbox-close]").forEach((el) => {
-      el.addEventListener("click", closeLightbox);
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
-    });
-  }
-
-  /* Scroll-spy: highlight the nav link for the section in view
-     ------------------------------------------------------------------ */
-  const sections = Array.from(document.querySelectorAll(".lp-section, .lp-hero"));
-  const navLinkByStale = document.querySelectorAll(".lp-nav__link");
-
-  if (sections.length && navLinkByStale.length && "IntersectionObserver" in window) {
-    const linkMap = new Map();
-    navLinkByStale.forEach((link) => linkMap.set(link.dataset.navId, link));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const link = linkMap.get(entry.target.id);
-          if (!link) return;
-          if (entry.isIntersecting) {
-            navLinkByStale.forEach((l) => l.classList.remove("is-active"));
-            link.classList.add("is-active");
-          }
-        });
-      },
-      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
-    );
-
-    sections.forEach((section) => {
-      if (section.id) observer.observe(section);
-    });
-  }
-
-  /* Door transition: clicking a nav link "enters" the panel through double
-     doors that close over the current view and open onto the target one.
-     ------------------------------------------------------------------ */
-  const doorStage = document.createElement("div");
-  doorStage.className = "lp-door";
-  doorStage.setAttribute("aria-hidden", "true");
-  doorStage.innerHTML =
-    '<div class="lp-door__shade"></div>' +
-    '<div class="lp-door__leaf lp-door__leaf--l"></div>' +
-    '<div class="lp-door__leaf lp-door__leaf--r"></div>';
-  document.body.appendChild(doorStage);
-
-  const DOOR_CLOSE_MS = 420; // keep in sync with landing.css
-  const DOOR_OPEN_MS = 620;
-  const doorReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let doorBusy = false;
-
-  const setActiveNav = (id) => {
-    document.querySelectorAll(".lp-nav__link").forEach((link) => {
-      link.classList.toggle("is-active", link.dataset.navId === id);
-    });
-  };
-
-  const runDoors = (midAction) => {
-    if (doorReducedMotion) {
-      midAction();
-      return;
+  /* ---------------------------- theme ---------------------------- */
+  function applyTheme(theme, persist) {
+    docEl.setAttribute("data-theme", theme);
+    var btn = document.getElementById("theme-toggle");
+    if (btn) {
+      var dark = theme === "dark";
+      btn.setAttribute("aria-pressed", dark ? "true" : "false");
+      btn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
     }
-    doorBusy = true;
-    doorStage.classList.add("is-active", "is-closing");
-    window.setTimeout(() => {
-      midAction();
-      doorStage.classList.remove("is-closing");
-      doorStage.classList.add("is-opening");
-      window.setTimeout(() => {
-        doorStage.classList.remove("is-opening", "is-active");
-        doorBusy = false;
-      }, DOOR_OPEN_MS);
-    }, DOOR_CLOSE_MS);
-  };
-
-  const enterPanel = (id) => {
-    const target = document.getElementById(id);
-    if (!target || doorBusy || location.hash === "#" + id) return;
-    runDoors(() => {
-      target.scrollIntoView({ behavior: "instant", block: "start" });
-      history.pushState(null, "", "#" + id);
-      setActiveNav(id);
-    });
-  };
-
-  document
-    .querySelectorAll('a.lp-nav__link[href^="#"], a.lp-scroll-cue[href^="#"]')
-    .forEach((link) => {
-      link.addEventListener("click", (event) => {
-        const id = (link.getAttribute("href") || "").slice(1);
-        if (!id || !document.getElementById(id)) return;
-        event.preventDefault();
-        enterPanel(id);
-      });
-    });
-
-  window.addEventListener("hashchange", () => {
-    const id = location.hash.slice(1);
-    if (!id || !document.getElementById(id) || doorBusy) return;
-    runDoors(() => {
-      document.getElementById(id).scrollIntoView({ behavior: "instant", block: "start" });
-      setActiveNav(id);
-    });
-  });
-
-  /* Constellation background
-     ------------------------------------------------------------------ */
-  const canvas = document.getElementById("lp-constellation");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  let width = 0;
-  let height = 0;
-  let nodes = [];
-  let rafId = null;
-  let running = false;
-
-  const getLineColor = () => getComputedStyle(document.documentElement).getPropertyValue("--lp-particle-line").trim() || "rgba(90, 70, 150, 0.16)";
-  const getNodeColor = () => getComputedStyle(document.documentElement).getPropertyValue("--lp-particle-node").trim() || "rgba(90, 70, 150, 0.35)";
-
-  const nodeCountFor = (w, h) => {
-    const area = w * h;
-    const density = window.innerWidth < 768 ? 22000 : 14000;
-    return Math.max(18, Math.min(90, Math.round(area / density)));
-  };
-
-  const createNodes = () => {
-    const count = nodeCountFor(width, height);
-    nodes = Array.from({ length: count }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.18,
-      vy: (Math.random() - 0.5) * 0.18,
-    }));
-  };
-
-  const resize = () => {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    width = canvas.clientWidth = canvas.offsetWidth || window.innerWidth;
-    height = canvas.clientHeight = canvas.offsetHeight || window.innerHeight;
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    createNodes();
-  };
-
-  const linkDistance = 130;
-
-  const drawFrame = () => {
-    ctx.clearRect(0, 0, width, height);
-
-    const lineColor = getLineColor();
-    const nodeColor = getNodeColor();
-
-    for (let i = 0; i < nodes.length; i++) {
-      const a = nodes[i];
-      for (let j = i + 1; j < nodes.length; j++) {
-        const b = nodes[j];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < linkDistance) {
-          ctx.globalAlpha = 1 - dist / linkDistance;
-          ctx.strokeStyle = lineColor;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
+    if (persist) {
+      try { localStorage.setItem(THEME_KEY, theme); } catch (e) { /* storage disabled */ }
     }
-
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = nodeColor;
-    nodes.forEach((n) => {
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, 1.6, 0, Math.PI * 2);
-      ctx.fill();
-    });
-  };
-
-  const step = () => {
-    nodes.forEach((n) => {
-      n.x += n.vx;
-      n.y += n.vy;
-      if (n.x < 0 || n.x > width) n.vx *= -1;
-      if (n.y < 0 || n.y > height) n.vy *= -1;
-    });
-    drawFrame();
-    if (running) rafId = requestAnimationFrame(step);
-  };
-
-  const start = () => {
-    if (running) return;
-    running = true;
-    rafId = requestAnimationFrame(step);
-  };
-
-  const stop = () => {
-    running = false;
-    if (rafId) cancelAnimationFrame(rafId);
-    rafId = null;
-  };
-
-  resize();
-
-  if (prefersReducedMotion) {
-    drawFrame();
-  } else {
-    start();
   }
 
-  let resizeTimer = null;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      resize();
-      if (prefersReducedMotion) drawFrame();
-    }, 150);
-  });
-
-  document.addEventListener("visibilitychange", () => {
-    if (prefersReducedMotion) return;
-    if (document.hidden) {
-      stop();
+  function initTheme() {
+    var stored = null;
+    try { stored = localStorage.getItem(THEME_KEY); } catch (e) { /* ignore */ }
+    if (stored === "dark" || stored === "light") {
+      applyTheme(stored, false);
     } else {
-      start();
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      applyTheme(prefersDark ? "dark" : "light", false);
     }
-  });
+    var btn = document.getElementById("theme-toggle");
+    if (btn) {
+      btn.addEventListener("click", function () {
+        var next = docEl.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        applyTheme(next, true);
+      });
+    }
+  }
+
+  /* ---------------------------- mobile nav ---------------------------- */
+  function initNav() {
+    var burger = document.getElementById("nav-burger");
+    var nav = document.getElementById("site-nav");
+    if (!burger || !nav) return;
+
+    function close() {
+      nav.classList.remove("is-open");
+      burger.setAttribute("aria-expanded", "false");
+      burger.setAttribute("aria-label", "Open menu");
+    }
+
+    burger.addEventListener("click", function () {
+      var open = nav.classList.toggle("is-open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+
+    nav.addEventListener("click", function (event) {
+      if (event.target.closest("a")) close();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") close();
+    });
+  }
+
+  /* ---------------------------- scrollspy ---------------------------- */
+  function initScrollspy() {
+    var links = Array.prototype.slice.call(document.querySelectorAll("[data-nav-id]"));
+    if (!links.length || !("IntersectionObserver" in window)) return;
+
+    var byId = {};
+    var sections = [];
+    links.forEach(function (link) {
+      var id = link.getAttribute("data-nav-id");
+      var section = document.getElementById(id);
+      if (section) {
+        byId[id] = link;
+        sections.push(section);
+      }
+    });
+    if (!sections.length) return;
+
+    var visible = {};
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        visible[entry.target.id] = entry.isIntersecting ? entry.intersectionRatio : 0;
+      });
+      var bestId = null;
+      var bestRatio = 0;
+      Object.keys(visible).forEach(function (id) {
+        if (visible[id] > bestRatio) { bestRatio = visible[id]; bestId = id; }
+      });
+      links.forEach(function (link) { link.classList.remove("is-active"); });
+      if (bestId && byId[bestId]) byId[bestId].classList.add("is-active");
+    }, { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.2, 0.5, 1] });
+
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  /* ---------------------------- publications ---------------------------- */
+  function initPublications() {
+    var list = document.getElementById("pub-list");
+    if (!list) return;
+
+    var items = Array.prototype.slice.call(list.querySelectorAll(".pub-item"));
+    var search = document.getElementById("pub-search");
+    var year = document.getElementById("pub-year");
+    var topic = document.getElementById("pub-topic");
+    var sort = document.getElementById("pub-sort");
+    var status = document.getElementById("pub-status");
+    var empty = document.getElementById("pub-empty");
+    var countEl = document.getElementById("pub-count");
+
+    function normalise(value) {
+      return (value || "").toLowerCase().normalize ? (value || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : (value || "").toLowerCase();
+    }
+
+    items.forEach(function (item) {
+      item._searchText = normalise(item.getAttribute("data-search"));
+      item._title = normalise(item.getAttribute("data-title"));
+      item._year = item.getAttribute("data-year");
+      item._category = item.getAttribute("data-category");
+    });
+
+    function apply() {
+      var query = normalise(search ? search.value.trim() : "");
+      var yearValue = year ? year.value : "";
+      var topicValue = topic ? topic.value : "";
+      var shown = 0;
+
+      items.forEach(function (item) {
+        var matches = (!query || item._searchText.indexOf(query) !== -1) &&
+                      (!yearValue || item._year === yearValue) &&
+                      (!topicValue || item._category === topicValue);
+        item.hidden = !matches;
+        if (matches) shown += 1;
+      });
+
+      var order = sort ? sort.value : "newest";
+      var sorted = items.slice().sort(function (a, b) {
+        if (order === "title") return a._title.localeCompare(b._title);
+        var diff = parseInt(a._year, 10) - parseInt(b._year, 10);
+        return order === "oldest" ? diff : -diff;
+      });
+      sorted.forEach(function (item) { list.appendChild(item); });
+
+      if (status) {
+        status.textContent = shown === items.length
+          ? "Showing all " + items.length + " publications."
+          : "Showing " + shown + " of " + items.length + " publications.";
+      }
+      if (countEl) countEl.textContent = items.length;
+      if (empty) empty.hidden = shown !== 0;
+    }
+
+    var timer = null;
+    if (search) {
+      search.addEventListener("input", function () {
+        window.clearTimeout(timer);
+        timer = window.setTimeout(apply, prefersReduced ? 0 : 120);
+      });
+      search.addEventListener("search", apply);
+    }
+    [year, topic, sort].forEach(function (el) {
+      if (el) el.addEventListener("change", apply);
+    });
+
+    apply();
+  }
+
+  /* ---------------------------- boot ---------------------------- */
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+
+  function boot() {
+    initTheme();
+    initNav();
+    initScrollspy();
+    initPublications();
+  }
 })();

@@ -1,3 +1,32 @@
-<div class="lp-bg" aria-hidden="true">
-  <canvas id="lp-constellation"></canvas>
+{% include base_path %}
+
+<div class="hero-bg" aria-hidden="true">
+  <svg class="hero-bg__svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <defs>
+      <pattern id="mol-grid" width="44" height="44" patternUnits="userSpaceOnUse">
+        <path d="M44 0H0V44" fill="none" stroke="currentColor" stroke-opacity="0.05" stroke-width="1"/>
+      </pattern>
+      <radialGradient id="mol-glow" cx="50%" cy="40%" r="60%">
+        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.28"/>
+        <stop offset="55%" stop-color="#2563eb" stop-opacity="0.10"/>
+        <stop offset="100%" stop-color="#0b1220" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1200" height="800" fill="url(#mol-grid)"/>
+    <circle cx="880" cy="300" r="330" fill="url(#mol-glow)"/>
+    <g class="hero-bg__lattice" stroke="#7dd3fc" stroke-opacity="0.35" stroke-width="1.1" fill="none">
+      <circle cx="932" cy="212" r="4.5" fill="#7dd3fc" fill-opacity="0.9"/>
+      <circle cx="1018" cy="268" r="3.2" fill="#7dd3fc" fill-opacity="0.8"/>
+      <circle cx="988" cy="366" r="4" fill="#7dd3fc" fill-opacity="0.8"/>
+      <circle cx="892" cy="392" r="3" fill="#7dd3fc" fill-opacity="0.7"/>
+      <circle cx="844" cy="300" r="3.6" fill="#7dd3fc" fill-opacity="0.8"/>
+      <circle cx="1044" cy="418" r="2.6" fill="#7dd3fc" fill-opacity="0.6"/>
+      <circle cx="1090" cy="330" r="3" fill="#7dd3fc" fill-opacity="0.7"/>
+      <path d="M932 212L1018 268L988 366L892 392L844 300L932 212M1018 268L1090 330L1044 418L988 366M892 392L844 300M1090 330L988 366"/>
+    </g>
+    <g class="hero-bg__helix" fill="none" stroke="#38bdf8" stroke-opacity="0.22" stroke-width="1">
+      <path d="M120 640C220 560 320 720 420 640S620 560 720 640S920 720 1020 640"/>
+      <path d="M120 660C220 580 320 740 420 660S620 580 720 660S920 740 1020 660"/>
+    </g>
+  </svg>
 </div>
