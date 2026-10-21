@@ -42,7 +42,7 @@
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   --radius: 12px;
   --radius-lg: 16px;
-  --container-max: 1140px;
+  --container-max: 1600px;
   --header-h: 74px;
   --name-accent: #123b72;
 }
@@ -105,7 +105,7 @@ body.lp-page {
 
 body.lp-page a { color: var(--blue); text-decoration: none; }
 body.lp-page a:hover { text-decoration: underline; text-underline-offset: 3px; }
-body.lp-page #main { margin: 0; padding: 0; }
+body.lp-page #main { max-width: none; float: none; margin: 0; padding: 0; }
 body.lp-page .page__footer { margin: 0; padding: 0; background: transparent; }
 body.lp-page img { max-width: 100%; height: auto; display: block; }
 body.lp-page h1,
@@ -124,7 +124,7 @@ body.lp-page :focus-visible {
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 2rem;
 }
 
 .visually-hidden {
@@ -152,6 +152,8 @@ body.lp-page :focus-visible {
 .site-header {
   position: sticky;
   top: 0;
+  margin: 0;
+  padding: 0;
   z-index: 50;
   background: color-mix(in srgb, var(--bg) 94%, transparent);
   border-bottom: 1px solid var(--border);
@@ -384,7 +386,7 @@ html[data-theme="dark"] .icon-btn__moon { display: block; }
   text-decoration: none;
 }
 
-.hero__content { padding-top: 6px; max-width: 730px; }
+.hero__content { padding-top: 6px; max-width: none; }
 
 .hero__eyebrow {
   display: inline-block;
