@@ -9,7 +9,7 @@ Sources (all public, documented APIs, no credentials):
 
 Outputs (idempotent, regenerate any time):
   _data/publications.yml            canonical metadata (Jekyll data file)
-  assets/data/publications.json     dataset consumed by the homepage UI
+  assets/data/publications.json     dataset consumed by the publications chapter
   _publications/<year>-<slug>.md    AcademicPages collection entries (/publications/)
   files/publications/*.pdf          only permissively-licensed open-access PDFs
   files/publications/licences.json  provenance + licence record for hosted PDFs
@@ -64,6 +64,7 @@ CATEGORIES = [
 
 # Manual category assignment by DOI (content-based, not title-only heuristics).
 CATEGORY_BY_DOI = {
+    "10.1016/j.bioorg.2026.110587": "Computer-Aided Drug Design",
     "10.1080/14756366.2025.2596488": "Computer-Aided Drug Design",
     "10.1142/s2737416525500048": "Cheminformatics & QSAR",
     "10.1080/07391102.2023.2283168": "Cheminformatics & QSAR",

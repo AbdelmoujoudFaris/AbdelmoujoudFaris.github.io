@@ -3,7 +3,7 @@
 {% assign current_role = p.experience[0] %}
 
 <section class="hero" id="about">
-  {% include landing/background.html %}
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="container hero__inner">
     <div class="hero__profile">
       <div class="hero__avatar">
@@ -14,9 +14,10 @@
         {% endif %}
       </div>
 
-      <h1 class="hero__name">{{ site.author.name }}<span class="hero__degree">, PhD</span></h1>
-      <p class="hero__role">{{ p.role }}</p>
-      <p class="hero__affiliation">{{ current_role.role }}<br /><span>{{ current_role.org }}</span></p>
+      {% assign name_parts = site.author.name | split: " " %}
+      <h1 class="hero__name"><span class="hero__name-accent">{{ name_parts[0] }}</span> {{ name_parts | slice: 1, 10 | join: " " }}<span class="hero__degree">, PhD</span></h1>
+      <p class="hero__role">{{ current_role.role }}</p>
+      <p class="hero__affiliation">{{ current_role.org }}</p>
       {% if site.author.location %}
         <p class="hero__location">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -61,23 +62,20 @@
     <div class="hero__content">
       <p class="hero__eyebrow">{{ p.headline }}</p>
       <p class="hero__intro">{{ p.intro }}</p>
-      <p class="hero__lede">{{ p.hero_secondary }}</p>
 
       <div class="hero__actions">
         <a class="btn btn--primary" href="#research">
           Explore My Research
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn--ghost" href="{{ '/cv/' | relative_url }}">
-          View My CV
-        </a>
+        <a class="btn btn--ghost" href="{{ '/cv/' | relative_url }}">View My CV</a>
       </div>
 
       <div class="hero__facts">
         <div class="hero-fact">
           <h2 class="hero-fact__title">Research Interests</h2>
           <ul class="hero-fact__list">
-            {% for interest in p.research_interests limit:4 %}
+            {% for interest in p.research_interests limit:6 %}
               <li>{{ interest }}</li>
             {% endfor %}
           </ul>
@@ -88,7 +86,7 @@
             {% for edu in p.education %}
               <li>
                 <span class="hero-fact__degree">{{ edu.degree }}</span>
-                <span class="hero-fact__meta">{{ edu.institution }} · {{ edu.period }}</span>
+                <span class="hero-fact__meta">{{ edu.institution }} &middot; {{ edu.period }}</span>
               </li>
             {% endfor %}
           </ul>

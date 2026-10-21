@@ -1,24 +1,39 @@
 # ============================================================
-#  Landing-page content (_layouts/landing.html, permalink /)
+#  Site content: home page sections and shared page copy
 #  Only landings-specific content lives here. Identity fields
 #  (name, email, social handles) come from _config.yml.
 # ============================================================
 
+# Primary navigation: each entry maps to a section anchor on the home page.
 nav:
   - id: about
     label: "About"
+    url: "#about"
+    desc: "Who I am, what drives my work, and where I do it."
   - id: research
     label: "Research"
+    url: "#research"
+    desc: "Computational chemistry, molecular AI and structural bioinformatics."
   - id: projects
     label: "Projects"
+    url: "#projects"
+    desc: "Open-source tools and reproducible research software."
   - id: publications
     label: "Publications"
+    url: "#publications"
+    desc: "Seventeen peer-reviewed articles, verified and searchable."
   - id: experience
     label: "Experience"
+    url: "#experience"
+    desc: "Research appointments in France and Morocco."
   - id: skills
     label: "Skills"
+    url: "#skills"
+    desc: "Methods, software and platforms I work with."
   - id: contact
     label: "Contact"
+    url: "#contact"
+    desc: "Email, profiles and collaboration enquiries."
 
 headline: "Computational Chemistry × Molecular AI"
 role: "Computational Chemist · Cheminformatician · Bioinformatician · AI Research Engineer"
@@ -90,6 +105,7 @@ experience:
     points:
       - "Machine-learning and structure-based approaches for molecular AI and drug design."
       - "Structural modelling, interaction analysis and computational workflows for protein targets."
+      - "RNA-seq differential expression and pathway analysis supporting target prioritisation."
   - role: "Computational Chemist — QSAR, Docking & ML-Validated Lead Discovery"
     org: "Université d'Angers — SONAS · Industry partner: Green Impulse"
     period: "2024 – 2025 (13 months)"
@@ -97,6 +113,7 @@ experience:
     points:
       - "QSAR modelling, molecular docking and virtual screening for lead discovery."
       - "Machine-learning validation of computational hits with an industrial partner."
+      - "RNA-seq differential expression analysis to contextualise compound activity."
   - role: "Computational Biologist — Protein–Ligand Design & Free Energy"
     org: "CNRS / Université Paris Cité — Unité BFA (CNRS UMR 8251)"
     period: "2024 (6 months)"
@@ -104,6 +121,7 @@ experience:
     points:
       - "Protein–ligand modelling and binding free-energy analysis."
       - "Structural and dynamic analysis of molecular complexes."
+      - "RNA-seq differential expression and enrichment analysis of molecular complexes."
   - role: "PhD Researcher — Machine Learning for Drug Discovery"
     org: "Université Sidi Mohamed Ben Abdellah — Laboratory LIMAS, Morocco"
     period: "2021 – 2025"
@@ -112,6 +130,7 @@ experience:
       - "QSAR 2D/3D, graph neural networks, GOLD/Vina docking, MD (GROMACS/AMBER), MM-GBSA."
       - "Peer-reviewed publications (see Publications) and 128 h/year teaching."
       - "Independent HPC/Slurm use for simulation and modelling workflows."
+      - "RNA-seq differential expression, pathway enrichment and co-expression analysis."
 
 education:
   - degree: "PhD, Computational Chemistry — ML & Structure-Based Drug Design"

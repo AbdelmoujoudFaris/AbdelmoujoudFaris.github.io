@@ -2,6 +2,14 @@
 
 <!-- start custom head snippets -->
 
+<script>
+  try {
+    if (localStorage.getItem("af-theme") === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  } catch (e) { /* storage unavailable: keep light default */ }
+</script>
+
 <!-- Support for Academicons -->
 <link rel="stylesheet" href="{{ '/assets/css/academicons.css' | relative_url }}"/>
 
@@ -12,6 +20,8 @@
 <link rel="icon" type="image/png" href="{{ '/images/favicon-192x192.png' | relative_url }}" sizes="192x192"/>
 <link rel="manifest" href="{{ '/images/manifest.json' | relative_url }}"/>
 <link rel="icon" href="{{ '/images/favicon.ico' | relative_url }}"/>
-<meta name="theme-color" content="#ffffff"/>
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"/>
+<meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)"/>
+<meta name="color-scheme" content="light dark"/>
 
 <!-- end custom head snippets -->

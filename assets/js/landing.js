@@ -22,12 +22,8 @@
   function initTheme() {
     var stored = null;
     try { stored = localStorage.getItem(THEME_KEY); } catch (e) { /* ignore */ }
-    if (stored === "dark" || stored === "light") {
-      applyTheme(stored, false);
-    } else {
-      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      applyTheme(prefersDark ? "dark" : "light", false);
-    }
+    applyTheme(stored === "dark" ? "dark" : "light", false);
+
     var btn = document.getElementById("theme-toggle");
     if (btn) {
       btn.addEventListener("click", function () {
@@ -62,40 +58,85 @@
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") close();
     });
+
+    document.addEventListener("click", function (event) {
+      if (!nav.classList.contains("is-open")) return;
+      if (nav.contains(event.target) || burger.contains(event.target)) return;
+      close();
+    });
   }
 
   /* ---------------------------- scrollspy ---------------------------- */
   function initScrollspy() {
     var links = Array.prototype.slice.call(document.querySelectorAll("[data-nav-id]"));
-    if (!links.length || !("IntersectionObserver" in window)) return;
+    if (!links.length) return;
 
-    var byId = {};
-    var sections = [];
+    var entries = [];
     links.forEach(function (link) {
       var id = link.getAttribute("data-nav-id");
       var section = document.getElementById(id);
-      if (section) {
-        byId[id] = link;
-        sections.push(section);
-      }
+      if (section) entries.push({ id: id, link: link, section: section });
     });
-    if (!sections.length) return;
+    if (!entries.length) return;
 
-    var visible = {};
-    var observer = new IntersectionObserver(function (entries) {
+    var header = document.getElementById("site-header");
+    var ticking = false;
+
+    function setActive(id) {
       entries.forEach(function (entry) {
-        visible[entry.target.id] = entry.isIntersecting ? entry.intersectionRatio : 0;
+        var active = entry.id === id;
+        entry.link.classList.toggle("is-active", active);
+        if (active) {
+          entry.link.setAttribute("aria-current", "location");
+        } else {
+          entry.link.removeAttribute("aria-current");
+        }
       });
-      var bestId = null;
-      var bestRatio = 0;
-      Object.keys(visible).forEach(function (id) {
-        if (visible[id] > bestRatio) { bestRatio = visible[id]; bestId = id; }
-      });
-      links.forEach(function (link) { link.classList.remove("is-active"); });
-      if (bestId && byId[bestId]) byId[bestId].classList.add("is-active");
-    }, { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.2, 0.5, 1] });
+    }
 
-    sections.forEach(function (section) { observer.observe(section); });
+    function update() {
+      ticking = false;
+      var offset = (header ? header.offsetHeight : 72) + 28;
+      var marker = window.scrollY + offset;
+      var current = entries[0].id;
+
+      entries.forEach(function (entry) {
+        var top = entry.section.getBoundingClientRect().top + window.scrollY;
+        if (top <= marker) current = entry.id;
+      });
+
+      var atBottom = window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 4;
+      if (atBottom) current = entries[entries.length - 1].id;
+
+      setActive(current);
+    }
+
+    function requestUpdate() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("hashchange", requestUpdate);
+    update();
+  }
+
+  /* ---------------------------- direct hash ---------------------------- */
+  function initHashScroll() {
+    if (!window.location.hash) return;
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (!target) return;
+
+    function scrollToTarget() {
+      target.scrollIntoView({ block: "start", behavior: prefersReduced ? "auto" : "smooth" });
+    }
+
+    window.addEventListener("load", function () {
+      window.setTimeout(scrollToTarget, 40);
+    });
   }
 
   /* ---------------------------- publications ---------------------------- */
@@ -113,7 +154,11 @@
     var countEl = document.getElementById("pub-count");
 
     function normalise(value) {
-      return (value || "").toLowerCase().normalize ? (value || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : (value || "").toLowerCase();
+      value = value || "";
+      if (value.toLowerCase && value.toLowerCase().normalize) {
+        return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      }
+      return value.toLowerCase();
     }
 
     items.forEach(function (item) {
@@ -170,16 +215,17 @@
   }
 
   /* ---------------------------- boot ---------------------------- */
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot);
-  } else {
-    boot();
-  }
-
   function boot() {
     initTheme();
     initNav();
     initScrollspy();
+    initHashScroll();
     initPublications();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
   }
 })();

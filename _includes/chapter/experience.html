@@ -1,0 +1,31 @@
+{% include base_path %}
+{% assign p = site.data.profile %}
+
+<p class="section__lead">
+  Research appointments across computational chemistry, structural bioinformatics
+  and machine learning for drug discovery.
+</p>
+
+<ol class="timeline">
+  {% for job in p.experience %}
+    <li class="timeline__item">
+      <div class="timeline__marker" aria-hidden="true"></div>
+      <div class="timeline__content">
+        <div class="timeline__head">
+          <h3 class="timeline__role">{{ job.role }}</h3>
+          <span class="timeline__period">{{ job.period }}</span>
+        </div>
+        <p class="timeline__org">{{ job.org }}</p>
+        {% if job.points %}
+          <ul class="timeline__points">
+            {% for point in job.points %}<li>{{ point }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </li>
+  {% endfor %}
+</ol>
+
+<p class="section__more">
+  <a class="btn btn--ghost" href="{{ '/cv/' | relative_url }}">Full CV with education and publications</a>
+</p>

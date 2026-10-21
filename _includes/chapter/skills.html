@@ -1,0 +1,18 @@
+{% include base_path %}
+{% assign p = site.data.profile %}
+
+<p class="section__lead">
+  Technologies listed here are evidenced by my research output, CV or public
+  repositories. No proficiency scores &mdash; just the tools I actually use.
+</p>
+
+<div class="skills-grid">
+  {% for group in p.skills %}
+    <article class="skill-card">
+      <h3 class="skill-card__title">{{ group.category }}</h3>
+      <ul class="tag-row tag-row--sm">
+        {% for item in group.items %}<li class="tag tag--sm">{{ item }}</li>{% endfor %}
+      </ul>
+    </article>
+  {% endfor %}
+</div>

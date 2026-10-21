@@ -2,6 +2,7 @@
 layout: inner
 title: "Curriculum Vitae"
 eyebrow: "Computational chemistry · Molecular AI"
+chapter: 8
 permalink: /cv/
 redirect_from:
   - /resume
@@ -32,13 +33,6 @@ Faculté des Sciences, Université Ibn Zohr, Agadir · 2014–2018
 {% for point in job.points %}- {{ point }}
 {% endfor %}
 {% endif %}
-{% endfor %}
-
-## Technical skills
-
-{% for group in site.data.profile.skills %}
-**{{ group.category }}** — {{ group.items | join: ", " }}
-
 {% endfor %}
 
 ## Teaching

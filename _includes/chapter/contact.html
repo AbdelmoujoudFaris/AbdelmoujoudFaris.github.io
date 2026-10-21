@@ -1,0 +1,34 @@
+{% include base_path %}
+
+<div class="contact contact--chapter">
+  <div class="contact__text">
+    <p class="section__lead">
+      Open to research collaborations, computational chemistry and scientific
+      software roles. The fastest way to reach me is email.
+    </p>
+    {% if site.author.email %}
+      <a class="btn btn--primary" href="mailto:{{ site.author.email }}">
+        {{ site.author.email }}
+      </a>
+    {% endif %}
+  </div>
+
+  <ul class="contact__links">
+    {% if site.author.github %}
+      <li><a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub <span aria-hidden="true">&rarr;</span></a></li>
+    {% endif %}
+    {% if site.author.orcid %}
+      <li><a href="{{ site.author.orcid }}" target="_blank" rel="noopener">ORCID <span aria-hidden="true">&rarr;</span></a></li>
+    {% endif %}
+    {% if site.author.linkedin %}
+      <li><a href="{{ site.author.linkedin }}" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">&rarr;</span></a></li>
+    {% endif %}
+    {% if site.author.researchgate %}
+      <li><a href="{{ site.author.researchgate }}" target="_blank" rel="noopener">ResearchGate <span aria-hidden="true">&rarr;</span></a></li>
+    {% endif %}
+    {% if site.author.googlescholar %}
+      <li><a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">&rarr;</span></a></li>
+    {% endif %}
+    <li><a href="{{ '/cv/' | relative_url }}">Curriculum Vitae <span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</div>

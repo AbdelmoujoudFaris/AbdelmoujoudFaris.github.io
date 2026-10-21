@@ -1,0 +1,25 @@
+{% include base_path %}
+{% assign chapters = site.data.profile.nav %}
+{% assign idx = page.chapter | minus: 1 %}
+
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  {% assign prev_idx = idx | minus: 1 %}
+  {% if prev_idx >= 0 %}
+    {% assign prev = chapters[prev_idx] %}
+    <a class="chapter-nav__link chapter-nav__link--prev" href="{{ prev.url | relative_url }}">
+      <span class="chapter-nav__dir">&larr; Previous chapter</span>
+      <span class="chapter-nav__label">{{ prev.label }}</span>
+    </a>
+  {% else %}
+    <span class="chapter-nav__spacer"></span>
+  {% endif %}
+
+  {% assign next_idx = idx | plus: 1 %}
+  {% if next_idx < chapters.size %}
+    {% assign next = chapters[next_idx] %}
+    <a class="chapter-nav__link chapter-nav__link--next" href="{{ next.url | relative_url }}">
+      <span class="chapter-nav__dir">Next chapter &rarr;</span>
+      <span class="chapter-nav__label">{{ next.label }}</span>
+    </a>
+  {% endif %}
+</nav>

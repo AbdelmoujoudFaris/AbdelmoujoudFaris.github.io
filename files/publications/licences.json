@@ -25,5 +25,14 @@
   "sha256": "e088738908d25b667bdad84e809706b50b8b996382d9ff7ece622e553ea2f71d",
   "bytes": 7546887,
   "downloaded": "2026-10-21"
+ },
+ "2024-3d-computer-modeling-of-inhibitors-targeting-the-mcf-7-breast-cancer.pdf": {
+  "doi": "10.3389/fchem.2024.1384832",
+  "source_url": "https://www.frontiersin.org/journals/chemistry/articles/10.3389/fchem.2024.1384832/pdf",
+  "license": "cc-by",
+  "version": "publishedVersion",
+  "sha256": "19f63f6e37caff9e107be29482c0c94c5798a91d8298142118b8c9381e2712dc",
+  "bytes": 3479891,
+  "downloaded": "2026-10-21"
  }
 }

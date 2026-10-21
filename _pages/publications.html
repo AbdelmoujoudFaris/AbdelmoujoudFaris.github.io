@@ -2,60 +2,8 @@
 layout: inner
 title: "Publications"
 eyebrow: "Peer-reviewed research"
+chapter: 4
 permalink: /publications/
 ---
 
-{% assign pubs = site.data.publications.publications | sort: "year" | reverse %}
-{% assign years = pubs | map: "year" | uniq %}
-
-<p class="section__lead">
-  <strong>{{ pubs | size }}</strong> peer-reviewed journal articles. Every record is
-  verified against Crossref and Unpaywall; open-access status and licences are
-  reported only when confirmed. Hosted PDFs are limited to licences that permit
-  redistribution.
-</p>
-
-<p class="section__more">
-  {% if site.author.googlescholar %}
-    <a class="btn btn--ghost" href="{{ site.author.googlescholar }}" target="_blank" rel="noopener">Google Scholar profile</a>
-  {% endif %}
-  <a class="btn btn--ghost" href="{{ '/' | relative_url }}#publications">Search and filter on the home page</a>
-</p>
-
-<div class="pub-list pub-list--archive">
-  {% for year in years %}
-    <h2 class="pub-year-heading">{{ year }}</h2>
-    {% for pub in pubs %}
-      {% if pub.year != year %}{% continue %}{% endif %}
-      <article class="pub-item">
-        <div class="pub-item__year" aria-hidden="true">{{ pub.year }}</div>
-        <div class="pub-item__body">
-          <h3 class="pub-item__title">
-            <a href="{{ pub.publisher_url | default: pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>
-          </h3>
-          <p class="pub-item__authors">{{ pub.authors | join: ", " }}</p>
-          <p class="pub-item__venue">
-            <em>{{ pub.journal }}</em> · {{ pub.year }}
-            <span class="pub-item__doi">DOI: {{ pub.doi }}</span>
-          </p>
-          <div class="pub-item__badges">
-            {% if pub.is_oa %}
-              <span class="badge badge--oa">Open Access{% if pub.oa_license %} · {{ pub.oa_license | upcase }}{% endif %}</span>
-            {% else %}
-              <span class="badge badge--closed">Subscription</span>
-            {% endif %}
-            <span class="badge badge--topic">{{ pub.category }}</span>
-          </div>
-          <div class="pub-item__actions">
-            <a class="pub-link" href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>
-            <a class="pub-link" href="{{ pub.publisher_url | default: pub.url }}" target="_blank" rel="noopener">Publisher</a>
-            {% if pub.local_pdf and pub.local_pdf != "" %}
-              <a class="pub-link pub-link--pdf" href="{{ pub.local_pdf | relative_url }}" target="_blank" rel="noopener">PDF</a>
-            {% endif %}
-            <a class="pub-link" href="{{ pub.researchgate_url }}" target="_blank" rel="noopener">ResearchGate</a>
-          </div>
-        </div>
-      </article>
-    {% endfor %}
-  {% endfor %}
-</div>
+{% include chapter/publications.html %}

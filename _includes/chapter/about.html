@@ -1,0 +1,31 @@
+{% include base_path %}
+{% assign p = site.data.profile %}
+{% assign current = p.experience[0] %}
+
+<div class="chapter-prose">
+  {{ p.about | markdownify }}
+</div>
+
+<div class="chapter-facts">
+  <div class="chapter-fact">
+    <h2 class="chapter-fact__title">Current position</h2>
+    <p><strong>{{ current.role }}</strong></p>
+    <p>{{ current.org }} &middot; {{ current.period }}</p>
+  </div>
+  <div class="chapter-fact">
+    <h2 class="chapter-fact__title">Education</h2>
+    <ul>
+      {% for edu in p.education %}
+        <li>
+          <strong>{{ edu.degree }}</strong>
+          <span>{{ edu.institution }} &middot; {{ edu.period }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<p class="chapter-next">
+  Continue to <a href="{{ '/research/' | relative_url }}">Research</a> for the science,
+  or open the <a href="{{ '/cv/' | relative_url }}">CV</a> for the full record.
+</p>

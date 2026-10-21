@@ -1,5 +1,6 @@
 {
  "dois": [
+  "10.1016/j.bioorg.2026.110587",
   "10.1016/j.jscs.2023.101728",
   "10.1080/07391102.2023.2220829",
   "10.1080/07391102.2023.2222839",
@@ -220,7 +221,7 @@
    "oa_alt_urls": [
     "https://pmc.ncbi.nlm.nih.gov/articles/PMC11181028/pdf/fchem-12-1384832.pdf"
    ],
-   "local_pdf": "/files/publications/2024-3d-computer-modeling-of-inhibitors-targeting-the-mcf-7-breast-cancer-c.pdf",
+   "local_pdf": "/files/publications/2024-3d-computer-modeling-of-inhibitors-targeting-the-mcf-7-breast-cancer.pdf",
    "download_permission": "permitted (cc-by)",
    "pdf_source_url": "https://www.frontiersin.org/journals/chemistry/articles/10.3389/fchem.2024.1384832/pdf"
   },
@@ -636,6 +637,53 @@
    "oa_alt_urls": [],
    "local_pdf": null,
    "download_permission": "not attempted: licence 'cc-by-nc-nd' is not redistributable"
+  },
+  "10.1016/j.bioorg.2026.110587": {
+   "doi": "10.1016/j.bioorg.2026.110587",
+   "title": "Thymol-based derivatives as anticancer agents: design, synthesis, biological evaluation, and molecular docking studies",
+   "journal": "Bioorganic Chemistry",
+   "publisher": "Elsevier BV",
+   "year": 2026,
+   "authors": [
+    "Abdelmoujoud Faris",
+    "Annalisa Di Rienzo",
+    "Ladislav Klena",
+    "Olga Krizanova",
+    "Hasan Turkez",
+    "Dilara Esra Men",
+    "Elif Arslan",
+    "Mehmet Enes Arslan",
+    "Kenan Cadirci",
+    "Woonghee Kim",
+    "Adil Mardinoglu",
+    "Silvia Valentinuzzi",
+    "Piero Del Boccio",
+    "Antonio Di Stefano",
+    "Ivana Cacciatore"
+   ],
+   "publisher_url": "https://doi.org/10.1016/j.bioorg.2026.110587",
+   "abstract": null,
+   "crossref_licenses": [
+    "https://www.elsevier.com/tdm/userlicense/1.0/",
+    "https://www.elsevier.com/legal/tdmrep-license",
+    "http://creativecommons.org/licenses/by/4.0/"
+   ],
+   "crossref_ok": true,
+   "is_oa": true,
+   "oa_status": "hybrid",
+   "oa_url": "https://www.sciencedirect.com/science/article/pii/S0045206826011235/pdf",
+   "oa_version": "publishedVersion",
+   "oa_license": "cc-by",
+   "oa_pages": [
+    "https://www.sciencedirect.com/science/article/pii/S0045206826011235/pdf"
+   ],
+   "oa_alt_urls": [
+    "https://www.sciencedirect.com/science/article/pii/S0045206826011235/pdf"
+   ],
+   "unpaywall_ok": true,
+   "category": "Computer-Aided Drug Design",
+   "researchgate_url": "https://www.researchgate.net/profile/Abdelmoujoud-Faris",
+   "verification_date": "2026-10-21"
   }
  },
  "verification_date": "2026-10-21"

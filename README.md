@@ -9,8 +9,11 @@ Live site: <https://abdelmoujoudfaris.github.io/>
 ## Stack
 
 - Jekyll (GitHub Pages compatible), based on Academic Pages
-- Custom landing page (`_layouts/landing.html`) with a light/dark theme,
-  responsive navigation and client-side publication filtering
+- Single-page home (`_layouts/landing.html`) with sticky section navigation,
+  scroll-spy, a light-first theme with a persisted dark toggle, and client-side
+  publication search/filter/sort
+- Shared inner layout (`_layouts/inner.html`) for the CV and per-publication
+  pages so every page shares one header, footer and type scale
 - Publication records generated from ORCID and verified against Crossref and
   Unpaywall
 
@@ -18,14 +21,25 @@ Live site: <https://abdelmoujoudfaris.github.io/>
 
 | Path | Purpose |
 | --- | --- |
-| `_data/profile.yml` | Landing-page content: hero, research areas, experience, education, projects, skills |
+| `_data/profile.yml` | Home-page content: nav targets, hero, research areas, experience, education, projects, skills |
 | `_config.yml` | Site identity, author profile, social links, build settings |
 | `_data/publications.yml` | Verified publication records (generated) |
 | `_publications/*.md` | One Jekyll document per publication (generated) |
 | `assets/data/publications.json` | Machine-readable publication records (generated) |
 | `files/publications/` | Locally hosted PDFs (only redistributable licences) |
+| `_pages/about.md` | Home page: hero plus the `#research` … `#contact` sections |
+| `_includes/chapter/*.html` | Section partials shared by the home page |
 | `_pages/cv.md` | Curriculum vitae |
-| `assets/css/landing.css`, `assets/js/landing.js` | Landing-page styles and behaviour |
+| `assets/css/landing.css`, `assets/js/landing.js` | Site styles and behaviour |
+
+## Navigation
+
+The primary nav links to in-page anchors on the home page (`#about`,
+`#research`, `#projects`, `#publications`, `#experience`, `#skills`,
+`#contact`). From any other page they resolve to `/<page>#<section>` so the
+header stays consistent. Section offsets are handled with `scroll-margin-top`;
+the active link is tracked by a scroll listener with an "at page bottom" rule,
+and the mobile drawer closes on link selection.
 
 ## Updating publications
 
@@ -57,11 +71,12 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Or with Docker (no local Ruby needed):
+Or with Docker (no local Ruby needed); gems are installed into the
+git-ignored `vendor/bundle`, so `BUNDLE_PATH` must point there:
 
 ```bash
-docker run --rm -v "$PWD:/src" -w /src ruby:3.3 \
-  bash -lc "bundle install && bundle exec jekyll serve --host 0.0.0.0"
+docker run --rm -e BUNDLE_PATH=/src/vendor/bundle -v "$PWD:/src" -w /src \
+  ruby:3.3 bash -lc "bundle install && bundle exec jekyll serve --host 0.0.0.0"
 ```
 
 The site is served at <http://localhost:4000>.

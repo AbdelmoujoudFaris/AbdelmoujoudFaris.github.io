@@ -1,0 +1,94 @@
+{% include base_path %}
+{% assign pubs = site.data.publications.publications | sort: "year" | reverse %}
+
+<p class="section__lead">
+  <strong id="pub-count">{{ pubs | size }}</strong> verified journal articles.
+  All bibliographic records are checked against Crossref and Unpaywall; open-access
+  status and licences are reported only when confirmed. Hosted PDFs are limited to
+  licences that permit redistribution.
+</p>
+
+<div class="pub-toolbar" role="search">
+  <label class="visually-hidden" for="pub-search">Search publications</label>
+  <input class="pub-toolbar__search" id="pub-search" type="search" placeholder="Search title, author or journal..." autocomplete="off" />
+
+  <label class="visually-hidden" for="pub-year">Filter by year</label>
+  <select class="pub-toolbar__select" id="pub-year">
+    <option value="">All years</option>
+    {% assign years = pubs | map: "year" | uniq | sort | reverse %}
+    {% for year in years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
+  </select>
+
+  <label class="visually-hidden" for="pub-topic">Filter by topic</label>
+  <select class="pub-toolbar__select" id="pub-topic">
+    <option value="">All topics</option>
+    {% assign topics = pubs | map: "category" | uniq | sort %}
+    {% for topic in topics %}<option value="{{ topic }}">{{ topic }}</option>{% endfor %}
+  </select>
+
+  <label class="visually-hidden" for="pub-sort">Sort publications</label>
+  <select class="pub-toolbar__select" id="pub-sort">
+    <option value="newest">Newest first</option>
+    <option value="oldest">Oldest first</option>
+    <option value="title">Title A-Z</option>
+  </select>
+</div>
+
+<p class="pub-status" id="pub-status" aria-live="polite"></p>
+
+<div class="pub-list" id="pub-list">
+  {% for pub in pubs %}
+    <article class="pub-item"
+             data-title="{{ pub.title | escape }}"
+             data-year="{{ pub.year }}"
+             data-category="{{ pub.category | escape }}"
+             data-search="{{ pub.title | append: ' ' | append: pub.journal | append: ' ' | append: pub.authors | join: ' ' | downcase | escape }}">
+      <div class="pub-item__year" aria-hidden="true">{{ pub.year }}</div>
+      <div class="pub-item__body">
+        <h3 class="pub-item__title">
+          <a href="{{ pub.publisher_url | default: pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+        </h3>
+        <p class="pub-item__authors">{{ pub.authors | join: ", " }}</p>
+        <p class="pub-item__venue">
+          <em>{{ pub.journal }}</em> &middot; {{ pub.year }}
+          <span class="pub-item__doi">DOI: {{ pub.doi }}</span>
+        </p>
+
+        <div class="pub-item__badges">
+          {% if pub.is_oa %}
+            <span class="badge badge--oa">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 9.6-2"/><rect x="4" y="11" width="16" height="10" rx="2"/></svg>
+              Open Access{% if pub.oa_license %} &middot; {{ pub.oa_license | upcase }}{% endif %}
+            </span>
+          {% else %}
+            <span class="badge badge--closed">Subscription</span>
+          {% endif %}
+          <span class="badge badge--topic">{{ pub.category }}</span>
+        </div>
+
+        <div class="pub-item__actions">
+          <a class="pub-link" href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>
+          <a class="pub-link" href="{{ pub.publisher_url | default: pub.url }}" target="_blank" rel="noopener">Publisher</a>
+          {% if pub.local_pdf and pub.local_pdf != "" %}
+            <a class="pub-link pub-link--pdf" href="{{ pub.local_pdf | relative_url }}" target="_blank" rel="noopener">PDF</a>
+          {% endif %}
+          <a class="pub-link" href="{{ pub.researchgate_url }}" target="_blank" rel="noopener">ResearchGate</a>
+          {% if pub.abstract and pub.abstract != "" %}
+            <details class="pub-abstract">
+              <summary>Abstract</summary>
+              <p>{{ pub.abstract }}</p>
+            </details>
+          {% endif %}
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
+<p class="pub-empty" id="pub-empty" hidden>No publications match these filters. Try a different query or reset the filters.</p>
+
+{% if site.author.googlescholar %}
+  <p class="section__more">
+    <a class="btn btn--ghost" href="{{ site.author.googlescholar }}" target="_blank" rel="noopener">Google Scholar profile</a>
+  </p>
+{% endif %}

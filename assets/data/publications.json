@@ -1,8 +1,38 @@
 {
  "generated": "2026-10-21",
- "count": 16,
+ "count": 17,
  "profile": "https://www.researchgate.net/profile/Abdelmoujoud-Faris",
  "publications": [
+  {
+   "title": "Thymol-based derivatives as anticancer agents: design, synthesis, biological evaluation, and molecular docking studies",
+   "authors": [
+    "Abdelmoujoud Faris",
+    "Annalisa Di Rienzo",
+    "Ladislav Klena",
+    "Olga Krizanova",
+    "Hasan Turkez",
+    "Dilara Esra Men",
+    "Elif Arslan",
+    "Mehmet Enes Arslan",
+    "Kenan Cadirci",
+    "Woonghee Kim",
+    "Adil Mardinoglu",
+    "Silvia Valentinuzzi",
+    "Piero Del Boccio",
+    "Antonio Di Stefano",
+    "Ivana Cacciatore"
+   ],
+   "year": 2026,
+   "journal": "Bioorganic Chemistry",
+   "doi": "10.1016/j.bioorg.2026.110587",
+   "category": "Computer-Aided Drug Design",
+   "is_oa": true,
+   "oa_license": "cc-by",
+   "pdf": null,
+   "url": "https://doi.org/10.1016/j.bioorg.2026.110587",
+   "researchgate": "https://www.researchgate.net/profile/Abdelmoujoud-Faris",
+   "abstract": null
+  },
   {
    "title": "Advancing infection therapy: the role of novel menthol-based antimicrobials",
    "authors": [
