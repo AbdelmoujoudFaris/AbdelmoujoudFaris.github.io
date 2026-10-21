@@ -454,6 +454,7 @@ html[data-theme="dark"] .icon-btn__moon { display: block; }
 .hero__facts {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 16px;
   margin-top: 32px;
 }
@@ -1001,7 +1002,7 @@ html[data-theme="dark"] .pub-link--pdf { color: #6ee7b7; }
   .site-nav__link.is-active::after { left: 12px; right: auto; width: 18px; bottom: 6px; }
 
   .hero__inner { grid-template-columns: minmax(0, 1fr); gap: 30px; }
-  .hero__profile { max-width: 440px; }
+  .hero__profile { width: 100%; max-width: 440px; margin: 0 auto; }
   .hero__content { max-width: none; }
   .project-grid { grid-template-columns: minmax(0, 1fr); }
   .pub-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
