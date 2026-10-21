@@ -1,0 +1,28 @@
+{% include base_path %}
+
+<header class="lp-header" id="lp-header">
+  <div class="lp-header__inner">
+    <a class="lp-header__logo" href="{{ base_path }}/#">A.FARIS</a>
+
+    <nav class="lp-nav" id="lp-nav" aria-label="Primary">
+      <ul class="lp-nav__links" id="lp-nav-links">
+        {% for item in site.data.profile.nav %}
+          <li>
+            <a href="#{{ item.id }}" class="lp-nav__link" data-nav-id="{{ item.id }}">{{ item.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="lp-header__actions">
+      <button type="button" class="lp-theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i>
+      </button>
+      <button type="button" class="lp-nav__burger" id="lp-nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="lp-nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>

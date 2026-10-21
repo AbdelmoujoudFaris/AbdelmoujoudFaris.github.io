@@ -1,0 +1,131 @@
+{% include base_path %}
+{% assign p = site.data.profile %}
+
+<main class="lp-main">
+
+  <!-- About -->
+  <section class="lp-section" id="about">
+    <div class="lp-section__inner">
+      <h2 class="lp-section__heading"><span aria-hidden="true">👤</span> About</h2>
+      <div class="lp-card lp-about-card">
+        {{ p.about | markdownify }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="lp-section" id="experience">
+    <div class="lp-section__inner">
+      <h2 class="lp-section__heading"><span aria-hidden="true">💼</span> Experience</h2>
+      <div class="lp-timeline">
+        {% for job in p.experience %}
+          <div class="lp-card lp-timeline__item">
+            <div class="lp-timeline__head">
+              <h3>{{ job.role }}</h3>
+              <div class="lp-timeline__meta">
+                {% if job.logo %}
+                  <button type="button" class="lp-timeline__logo" aria-label="View {{ job.org }} logo larger">
+                    <img src="{{ base_path }}{{ job.logo }}" alt="" loading="lazy" />
+                  </button>
+                {% endif %}
+                <span class="lp-timeline__period">{{ job.period }}</span>
+              </div>
+            </div>
+            <p class="lp-timeline__org">{{ job.org }}</p>
+            {% if job.points %}
+              <ul>
+                {% for point in job.points %}<li>{{ point }}</li>{% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="lp-section" id="education">
+    <div class="lp-section__inner">
+      <h2 class="lp-section__heading"><span aria-hidden="true">🎓</span> Education</h2>
+      <div class="lp-timeline">
+        {% for edu in p.education %}
+          <div class="lp-card lp-timeline__item">
+            <div class="lp-timeline__head">
+              <h3>{{ edu.degree }}</h3>
+              <div class="lp-timeline__meta">
+                {% if edu.logo %}
+                  <button type="button" class="lp-timeline__logo" aria-label="View {{ edu.institution }} logo larger">
+                    <img src="{{ base_path }}{{ edu.logo }}" alt="" loading="lazy" />
+                  </button>
+                {% endif %}
+                <span class="lp-timeline__period">{{ edu.period }}</span>
+              </div>
+            </div>
+            <p class="lp-timeline__org">{{ edu.institution }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section class="lp-section" id="research">
+    <div class="lp-section__inner">
+      <h2 class="lp-section__heading"><span aria-hidden="true">🧬</span> Research</h2>
+      <div class="lp-card">
+        <div class="lp-tag-row">
+          {% for interest in p.research_interests %}
+            <span class="lp-tag">{{ interest }}</span>
+          {% endfor %}
+        </div>
+        {% if p.research_note %}<p class="lp-research-note">{{ p.research_note }}</p>{% endif %}
+        {% if site.author.googlescholar %}
+          <a class="lp-inline-link" href="{{ site.author.googlescholar }}" target="_blank" rel="noopener">
+            View publications on Google Scholar <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="lp-section" id="projects">
+    <div class="lp-section__inner">
+      <h2 class="lp-section__heading"><span aria-hidden="true">🧪</span> Projects</h2>
+      <div class="lp-grid">
+        {% for project in p.projects %}
+          <div class="lp-card lp-project-card">
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.description }}</p>
+            {% if project.tags %}
+              <div class="lp-tag-row">
+                {% for tag in project.tags %}<span class="lp-tag lp-tag--sm">{{ tag }}</span>{% endfor %}
+              </div>
+            {% endif %}
+            {% if project.url %}
+              <a class="lp-inline-link" href="{{ project.url }}" target="_blank" rel="noopener">View project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="lp-section" id="skills">
+    <div class="lp-section__inner">
+      <h2 class="lp-section__heading"><span aria-hidden="true">🛠</span> Skills</h2>
+      <div class="lp-grid">
+        {% for group in p.skills %}
+          <div class="lp-card lp-skill-card">
+            <h3>{{ group.category }}</h3>
+            <div class="lp-tag-row">
+              {% for item in group.items %}<span class="lp-tag">{{ item }}</span>{% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+</main>

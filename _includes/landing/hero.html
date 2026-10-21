@@ -1,0 +1,62 @@
+{% include base_path %}
+
+<section class="lp-hero" id="hero">
+  <div class="lp-hero__inner">
+    <div class="lp-hero__avatar-col">
+      <span class="lp-hero__avatar-ring">
+        {% if site.author.avatar contains "://" %}
+          <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}" fetchpriority="high" width="240" height="240" />
+        {% else %}
+          <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" fetchpriority="high" width="240" height="240" />
+        {% endif %}
+      </span>
+    </div>
+
+    <div class="lp-hero__content">
+      {% assign current_role = site.data.profile.experience[0] %}
+      <p class="lp-badge">{{ site.data.profile.badge }}</p>
+
+      <h1 class="lp-hero__name">{{ site.author.name }}</h1>
+      <p class="lp-hero__title">Computational Chemist &amp; Bioinformatician</p>
+      <p class="lp-hero__affiliation">{{ current_role.role }} · {{ current_role.org }}</p>
+      <p class="lp-hero__location">📍 {{ site.author.location }}</p>
+
+      <div class="lp-social" role="list">
+        {% if site.author.email %}
+          <a class="lp-social__btn" href="mailto:{{ site.author.email }}" role="listitem" aria-label="Email">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Email</span>
+          </a>
+        {% endif %}
+        {% if site.author.github %}
+          <a class="lp-social__btn" href="https://github.com/{{ site.author.github }}" role="listitem" aria-label="GitHub" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span>
+          </a>
+        {% endif %}
+        {% if site.author.linkedin %}
+          <a class="lp-social__btn" href="{{ site.author.linkedin }}" role="listitem" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span>
+          </a>
+        {% endif %}
+        {% if site.author.researchgate %}
+          <a class="lp-social__btn" href="{{ site.author.researchgate }}" role="listitem" aria-label="ResearchGate" target="_blank" rel="noopener">
+            <i class="fa-brands fa-researchgate" aria-hidden="true"></i><span>ResearchGate</span>
+          </a>
+        {% endif %}
+        {% if site.author.orcid %}
+          <a class="lp-social__btn" href="{{ site.author.orcid }}" role="listitem" aria-label="ORCID" target="_blank" rel="noopener">
+            <i class="ai ai-orcid" aria-hidden="true"></i><span>ORCID</span>
+          </a>
+        {% endif %}
+        {% if site.author.youtube %}
+          <a class="lp-social__btn" href="https://www.youtube.com/@{{ site.author.youtube }}" role="listitem" aria-label="YouTube" target="_blank" rel="noopener">
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i><span>YouTube</span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <a class="lp-scroll-cue" href="#about" aria-label="Scroll to About section">
+    <span>⌄</span>
+  </a>
+</section>
