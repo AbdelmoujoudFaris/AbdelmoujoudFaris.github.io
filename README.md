@@ -9,11 +9,14 @@ Live site: <https://abdelmoujoudfaris.github.io/>
 ## Stack
 
 - Jekyll (GitHub Pages compatible), based on Academic Pages
-- Single-page home (`_layouts/landing.html`) with sticky section navigation,
-  scroll-spy, a light-first theme with a persisted dark toggle, and client-side
-  publication search/filter/sort
-- Shared inner layout (`_layouts/inner.html`) for the CV and per-publication
-  pages so every page shares one header, footer and type scale
+- Landing home page (`_layouts/landing.html`) with a concise hero and section
+  previews that link out to dedicated pages; a persisted light/dark theme; and
+  client-side publication search/filter/sort on the Publications page
+- Shared inner layout (`_layouts/inner.html`) used by every dedicated page
+  (About, Research, Projects, Publications, Experience, Skills, Contact), the CV
+  and per-publication pages, so all pages share one header, footer and type scale
+- Blue / red / white academic identity defined as CSS custom properties in
+  `assets/css/landing.css`
 - Publication records generated from ORCID and verified against Crossref and
   Unpaywall
 
@@ -21,25 +24,29 @@ Live site: <https://abdelmoujoudfaris.github.io/>
 
 | Path | Purpose |
 | --- | --- |
-| `_data/profile.yml` | Home-page content: nav targets, hero, research areas, experience, education, projects, skills |
+| `_data/profile.yml` | Shared content: nav targets, hero, research areas, experience, education, projects, skills |
 | `_config.yml` | Site identity, author profile, social links, build settings |
 | `_data/publications.yml` | Verified publication records (generated) |
 | `_publications/*.md` | One Jekyll document per publication (generated) |
 | `assets/data/publications.json` | Machine-readable publication records (generated) |
 | `files/publications/` | Locally hosted PDFs (only redistributable licences) |
-| `_pages/about.md` | Home page: hero plus the `#research` … `#contact` sections |
-| `_includes/chapter/*.html` | Section partials shared by the home page |
+| `_pages/index.md` | Home landing page: hero plus previews of each section |
+| `_pages/chapter-about.md` | About page (`/about/`) |
+| `_pages/{research,projects,experience,skills,contact}.md` | Dedicated section pages |
+| `_pages/publications.html` | Publication archive with search/filter/sort |
+| `_includes/chapter/*.html` | Section partials shared by the home page and dedicated pages |
 | `_pages/cv.md` | Curriculum vitae |
 | `assets/css/landing.css`, `assets/js/landing.js` | Site styles and behaviour |
 
 ## Navigation
 
-The primary nav links to in-page anchors on the home page (`#about`,
-`#research`, `#projects`, `#publications`, `#experience`, `#skills`,
-`#contact`). From any other page they resolve to `/<page>#<section>` so the
-header stays consistent. Section offsets are handled with `scroll-margin-top`;
-the active link is tracked by a scroll listener with an "at page bottom" rule,
-and the mobile drawer closes on link selection.
+Every primary nav item opens a **dedicated page** (`/about/`, `/research/`,
+`/projects/`, `/publications/`, `/experience/`, `/skills/`, `/contact/`), defined
+in `_data/profile.yml` and rendered by `_includes/landing/header.html`. The brand
+(`Abdelmoujoud Faris`) links to the home page `/`. The current page is marked
+with `aria-current="page"` and an accent underline, resolved from the URL in
+`assets/js/landing.js`. The home page keeps the old `#section` ids so existing
+deep links still resolve, and the mobile drawer closes on selection.
 
 ## Updating publications
 

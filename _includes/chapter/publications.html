@@ -1,5 +1,46 @@
 {% include base_path %}
 {% assign pubs = site.data.publications.publications | sort: "year" | reverse %}
+{% assign compact = include.compact %}
+
+{% if compact %}
+<p class="section__lead">
+  A selection from <strong>{{ pubs | size }}</strong> verified journal articles. Open-access
+  status and licences are reported only when confirmed against Crossref and Unpaywall.
+</p>
+
+<div class="pub-list pub-list--compact">
+  {% for pub in pubs limit:5 %}
+    <article class="pub-item">
+      <div class="pub-item__year" aria-hidden="true">{{ pub.year }}</div>
+      <div class="pub-item__body">
+        <h3 class="pub-item__title">
+          <a href="{{ pub.publisher_url | default: pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+        </h3>
+        <p class="pub-item__authors">{{ pub.authors | join: ", " }}</p>
+        <p class="pub-item__venue">
+          <em>{{ pub.journal }}</em> &middot; {{ pub.year }}
+          <span class="pub-item__doi">DOI: {{ pub.doi }}</span>
+        </p>
+        <div class="pub-item__badges">
+          {% if pub.is_oa %}
+            <span class="badge badge--oa">Open Access{% if pub.oa_license %} &middot; {{ pub.oa_license | upcase }}{% endif %}</span>
+          {% else %}
+            <span class="badge badge--closed">Subscription</span>
+          {% endif %}
+          <span class="badge badge--topic">{{ pub.category }}</span>
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
+<p class="section__more">
+  <a class="btn btn--ghost" href="{{ '/publications/' | relative_url }}">
+    View all {{ pubs | size }} publications
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</p>
+{% else %}
 
 <p class="section__lead">
   <strong id="pub-count">{{ pubs | size }}</strong> verified journal articles.
@@ -91,4 +132,5 @@
   <p class="section__more">
     <a class="btn btn--ghost" href="{{ site.author.googlescholar }}" target="_blank" rel="noopener">Google Scholar profile</a>
   </p>
+{% endif %}
 {% endif %}

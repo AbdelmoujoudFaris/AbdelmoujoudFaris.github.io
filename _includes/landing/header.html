@@ -10,8 +10,14 @@
     <nav class="site-nav" id="site-nav" aria-label="Primary">
       <ul class="site-nav__list" id="site-nav-list">
         {% for item in site.data.profile.nav %}
+          {% assign is_current = false %}
+          {% if page.url == item.url %}{% assign is_current = true %}{% endif %}
+          {% if item.id == "about" and page.url == "/" %}{% assign is_current = true %}{% endif %}
           <li>
-            <a href="{% if page.url == '/' %}{{ item.url }}{% else %}{{ '/' | relative_url }}{{ item.url }}{% endif %}" class="site-nav__link" data-nav-id="{{ item.id }}">{{ item.label }}</a>
+            <a href="{{ item.url | relative_url }}"
+               class="site-nav__link{% if is_current %} is-active{% endif %}"
+               data-nav-id="{{ item.id }}"
+               {% if is_current %}aria-current="page"{% endif %}>{{ item.label }}</a>
           </li>
         {% endfor %}
       </ul>

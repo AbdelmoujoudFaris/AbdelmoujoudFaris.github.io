@@ -2,8 +2,15 @@
 layout: inner
 title: "Projects"
 eyebrow: "Open source & research software"
-chapter: 3
+description: "Open-source tools and reproducible research software for molecular AI, structural bioinformatics, cheminformatics and multi-omics."
 permalink: /projects/
 ---
+
+{% include base_path %}
+{% assign p = site.data.profile %}
+
+<div class="chapter-prose">
+  <p>{{ p.intro }}</p>
+</div>
 
 {% include chapter/projects.html %}

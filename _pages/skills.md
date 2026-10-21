@@ -2,8 +2,11 @@
 layout: inner
 title: "Skills"
 eyebrow: "Methods & technologies"
-chapter: 6
+description: "Scientific software, programming languages, computational methods, cheminformatics, bioinformatics, molecular modelling and AI/ML skills."
 permalink: /skills/
 ---
+
+{% include base_path %}
+{% assign p = site.data.profile %}
 
 {% include chapter/skills.html %}

@@ -66,62 +66,45 @@
     });
   }
 
-  /* ---------------------------- scrollspy ---------------------------- */
-  function initScrollspy() {
+  /* ---------------------------- current page ---------------------------- */
+  function initCurrentPage() {
     var links = Array.prototype.slice.call(document.querySelectorAll("[data-nav-id]"));
     if (!links.length) return;
 
-    var entries = [];
+    var path = window.location.pathname.replace(/\/+$/, "") || "/";
+    var active = null;
+
     links.forEach(function (link) {
-      var id = link.getAttribute("data-nav-id");
-      var section = document.getElementById(id);
-      if (section) entries.push({ id: id, link: link, section: section });
+      var href = link.getAttribute("href") || "";
+      href = href.split("#")[0].replace(/\/+$/, "") || "/";
+      if (href === path) active = link;
+      if (href === "/about" && path === "/") active = link;
     });
-    if (!entries.length) return;
 
-    var header = document.getElementById("site-header");
-    var ticking = false;
+    links.forEach(function (link) {
+      var isActive = link === active;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
 
-    function setActive(id) {
-      entries.forEach(function (entry) {
-        var active = entry.id === id;
-        entry.link.classList.toggle("is-active", active);
-        if (active) {
-          entry.link.setAttribute("aria-current", "location");
-        } else {
-          entry.link.removeAttribute("aria-current");
-        }
-      });
+  /* ---------------------------- direct hash ---------------------------- */
+  function initHashScroll() {
+    if (!window.location.hash) return;
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (!target) return;
+
+    function scrollToTarget() {
+      target.scrollIntoView({ block: "start", behavior: prefersReduced ? "auto" : "smooth" });
     }
 
-    function update() {
-      ticking = false;
-      var offset = (header ? header.offsetHeight : 72) + 28;
-      var marker = window.scrollY + offset;
-      var current = entries[0].id;
-
-      entries.forEach(function (entry) {
-        var top = entry.section.getBoundingClientRect().top + window.scrollY;
-        if (top <= marker) current = entry.id;
-      });
-
-      var atBottom = window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 4;
-      if (atBottom) current = entries[entries.length - 1].id;
-
-      setActive(current);
-    }
-
-    function requestUpdate() {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(update);
-    }
-
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
-    window.addEventListener("hashchange", requestUpdate);
-    update();
+    window.addEventListener("load", function () {
+      window.setTimeout(scrollToTarget, 40);
+    });
   }
 
   /* ---------------------------- direct hash ---------------------------- */
@@ -218,7 +201,7 @@
   function boot() {
     initTheme();
     initNav();
-    initScrollspy();
+    initCurrentPage();
     initHashScroll();
     initPublications();
   }

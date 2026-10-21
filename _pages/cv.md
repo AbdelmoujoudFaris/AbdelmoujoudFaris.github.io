@@ -2,7 +2,7 @@
 layout: inner
 title: "Curriculum Vitae"
 eyebrow: "Computational chemistry · Molecular AI"
-chapter: 8
+description: "Full curriculum vitae: education, research experience, teaching, peer-reviewed publications, languages and references."
 permalink: /cv/
 redirect_from:
   - /resume

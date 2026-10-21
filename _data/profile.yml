@@ -4,35 +4,35 @@
 #  (name, email, social handles) come from _config.yml.
 # ============================================================
 
-# Primary navigation: each entry maps to a section anchor on the home page.
+# Primary navigation: each entry is a dedicated page under its own permalink.
 nav:
   - id: about
     label: "About"
-    url: "#about"
-    desc: "Who I am, what drives my work, and where I do it."
+    url: "/about/"
+    desc: "Academic background, research identity and career objectives."
   - id: research
     label: "Research"
-    url: "#research"
-    desc: "Computational chemistry, molecular AI and structural bioinformatics."
+    url: "/research/"
+    desc: "Research themes, scientific questions and computational methods."
   - id: projects
     label: "Projects"
-    url: "#projects"
+    url: "/projects/"
     desc: "Open-source tools and reproducible research software."
   - id: publications
     label: "Publications"
-    url: "#publications"
+    url: "/publications/"
     desc: "Seventeen peer-reviewed articles, verified and searchable."
   - id: experience
     label: "Experience"
-    url: "#experience"
+    url: "/experience/"
     desc: "Research appointments in France and Morocco."
   - id: skills
     label: "Skills"
-    url: "#skills"
+    url: "/skills/"
     desc: "Methods, software and platforms I work with."
   - id: contact
     label: "Contact"
-    url: "#contact"
+    url: "/contact/"
     desc: "Email, profiles and collaboration enquiries."
 
 headline: "Computational Chemistry × Molecular AI"

@@ -2,8 +2,10 @@
 layout: inner
 title: "Contact"
 eyebrow: "Get in touch"
-chapter: 7
+description: "Professional contact information and external profile links for Abdelmoujoud Faris."
 permalink: /contact/
 ---
+
+{% include base_path %}
 
 {% include chapter/contact.html %}
