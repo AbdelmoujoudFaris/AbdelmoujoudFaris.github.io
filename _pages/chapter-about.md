@@ -2,7 +2,7 @@
 layout: inner
 title: "About"
 eyebrow: "Profile"
-description: "Academic background, research identity and career objectives of Abdelmoujoud Faris, PhD in Computational Chemistry."
+description: "Professional profile, technical expertise and research journey of Abdelmoujoud Faris, PhD in Computational Chemistry: cheminformatics, CADD, molecular modelling, structural bioinformatics and AI/ML for drug discovery."
 permalink: /about/
 redirect_from:
   - /chapter-about/

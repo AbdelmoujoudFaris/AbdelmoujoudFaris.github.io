@@ -1,10 +1,116 @@
 {% include base_path %}
 {% assign p = site.data.profile %}
+{% assign a = site.data.about %}
 {% assign current = p.experience[0] %}
 
-<div class="chapter-prose">
-  {{ p.about | markdownify }}
-</div>
+<section class="about-block" aria-label="Research metrics">
+  <ul class="about-metrics">
+    {% for m in a.metrics %}
+      <li class="about-metric">
+        <span class="about-metric__value">{{ m.value }}</span>
+        <span class="about-metric__label">{{ m.label }}</span>
+        {% if m.note %}<span class="about-metric__note">{{ m.note }}</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  <p class="about-orcid">
+    <a class="text-link" href="{{ a.orcid }}" target="_blank" rel="noopener">ORCID {{ a.orcid_id }}
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+  </p>
+</section>
+
+<section class="about-block" aria-label="Professional introduction">
+  <div class="chapter-prose about-prose">
+    {{ p.about | markdownify }}
+  </div>
+</section>
+
+<section class="about-block" aria-labelledby="about-expertise">
+  <h2 id="about-expertise">Technical expertise</h2>
+  <p class="about-lead">
+    Cheminformatics is the centre of my work. Each area below can be expanded to see the methods in it.
+    Filled chips are methods I have applied in my research, publications or software; dashed chips are areas of working knowledge.
+  </p>
+  <ul class="xp-legend" aria-label="Legend">
+    <li class="xp-chip xp-chip--applied">Applied in research or software</li>
+    <li class="xp-chip xp-chip--knowledge">Working knowledge</li>
+  </ul>
+
+  {% assign core = a.core %}
+  <article class="xp xp--core" aria-labelledby="xp-core-title">
+    <header class="xp__head">
+      <div>
+        <p class="xp__eyebrow">Central expertise</p>
+        <h3 id="xp-core-title" class="xp__title">{{ core.title }}</h3>
+        <p class="xp__lead">{{ core.lead }}</p>
+      </div>
+      <div class="xp__tools" data-xp-tools></div>
+    </header>
+    <div class="xp-groups">
+      {% for g in core.groups %}
+        <details class="xp-group">
+          <summary>
+            <span class="xp-group__title"><span class="xp-group__id" aria-hidden="true">{{ g.id }}</span>{{ g.title }}</span>
+            <span class="xp-group__preview">{{ g.preview }}</span>
+          </summary>
+          <div class="xp-group__body">
+            <p class="xp-group__desc">{{ g.desc }}</p>
+            {% include chapter/about-chips.html applied=g.applied knowledge=g.knowledge %}
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+  </article>
+
+  <div class="xp-grid">
+    {% for area in a.areas %}
+      <article class="xp">
+        <h3 class="xp__title">{{ area.title }}</h3>
+        <p class="xp__lead">{{ area.lead }}</p>
+        {% for g in area.groups %}
+          {% if g.title %}<h4 class="xp__sub">{{ g.title }}</h4>{% endif %}
+          {% include chapter/about-chips.html applied=g.applied knowledge=g.knowledge %}
+        {% endfor %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="about-block" aria-labelledby="about-journey">
+  <h2 id="about-journey">Research journey</h2>
+  <ol class="about-journey">
+    {% for step in a.journey %}
+      <li class="about-journey__item">
+        <p class="about-journey__period">{{ step.period }}</p>
+        <h3 class="about-journey__title">{{ step.title }}</h3>
+        <p class="about-journey__org">{{ step.org }}</p>
+        <p class="about-journey__focus">{{ step.focus }}</p>
+        {% if step.note %}<p class="about-journey__note">{{ step.note }}</p>{% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="about-block" aria-labelledby="about-software">
+  <h2 id="about-software">Research software</h2>
+  <p class="about-lead">{{ a.software_note }}</p>
+  <div class="about-software">
+    {% for s in a.software %}
+      <article class="project-card">
+        <div class="project-card__head">
+          <span class="project-card__domain">{{ s.domain }}</span>
+        </div>
+        <h3 class="project-card__title"><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a></h3>
+        <p class="project-card__text">{{ s.text }}</p>
+        <p class="about-software__link"><a class="text-link" href="{{ s.url }}" target="_blank" rel="noopener">{{ s.link_label }}
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a></p>
+      </article>
+    {% endfor %}
+  </div>
+  <p class="about-software__more"><a class="text-link" href="{{ '/projects/' | relative_url }}">All projects &rarr;</a></p>
+</section>
 
 <div class="chapter-facts">
   <div class="chapter-fact">

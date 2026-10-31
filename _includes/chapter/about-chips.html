@@ -1,0 +1,8 @@
+<ul class="xp-chips">
+  {%- for item in include.applied %}
+  <li class="xp-chip xp-chip--applied">{{ item }}</li>
+  {%- endfor %}
+  {%- for item in include.knowledge %}
+  <li class="xp-chip xp-chip--knowledge">{{ item }}<span class="visually-hidden"> (working knowledge)</span></li>
+  {%- endfor %}
+</ul>

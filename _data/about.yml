@@ -1,0 +1,143 @@
+# ============================================================
+#  About page data (metrics, technical expertise, journey, software)
+#  Every methods group has two lists:
+#    applied   - methods applied in my research, publications or software
+#    knowledge - areas of working knowledge (not claimed as advanced hands-on skills)
+# ============================================================
+
+orcid: "https://orcid.org/0000-0003-0781-6523"
+orcid_id: "0000-0003-0781-6523"
+
+metrics:
+  - value: "2025"
+    label: "PhD in Computational Chemistry"
+  - value: "17"
+    label: "Peer-reviewed publications"
+  - value: "11"
+    label: "First-author publications"
+  - value: "50+"
+    label: "GitHub repositories"
+    note: "public and private"
+
+# ---------------- central expertise ----------------
+core:
+  title: "Cheminformatics"
+  lead: "The central strand of my work: preparing and representing chemical data, measuring molecular similarity, building and validating predictive models, and prioritising compounds for drug discovery."
+  groups:
+    - id: "A"
+      title: "Molecular data processing and chemical informatics"
+      preview: "SMILES handling · parsing and validation · compound library preparation"
+      desc: "Reading, validating and organising chemical structures and datasets before modelling."
+      applied: ["SMILES and molecular structure handling", "Molecular parsing and validation", "Chemical data curation", "Compound library preparation", "Molecular data transformation"]
+      knowledge: ["Molecular standardisation and normalisation", "Salt removal and fragment handling", "Tautomer and protonation-state considerations", "Stereochemistry handling", "Duplicate detection", "Chemical database integration", "Chemical structure searching"]
+    - id: "B"
+      title: "Molecular descriptors and representations"
+      preview: "Morgan fingerprints · physicochemical and 2D/3D descriptors · molecular graphs"
+      desc: "Numerical and graph representations of molecules used for similarity, modelling and machine learning."
+      applied: ["Molecular fingerprints", "Morgan fingerprints", "Topological descriptors", "Physicochemical descriptors", "2D and 3D molecular descriptors", "Molecular graph representations", "Molecular feature engineering"]
+      knowledge: ["MACCS fingerprints", "Functional group analysis", "Substructure representations", "Chemical space representation"]
+    - id: "C"
+      title: "Molecular similarity and chemical space analysis"
+      preview: "Tanimoto similarity · Bemis–Murcko scaffolds · SAR exploration"
+      desc: "Comparing compounds, scaffolds and targets to find analogues and understand structure–activity trends."
+      applied: ["Tanimoto coefficient", "Fingerprint-based similarity", "Scaffold similarity", "Bemis–Murcko scaffold analysis", "Similarity searching", "Analogue identification", "Structure–activity relationship (SAR) exploration", "Compound library comparison"]
+      knowledge: ["Substructure similarity", "Molecular clustering", "Chemical diversity analysis", "Chemical space visualisation"]
+    - id: "D"
+      title: "QSAR and predictive modelling"
+      preview: "QSAR and 3D-QSAR · MLR, RF, SVM, ANN · applicability domain and validation"
+      desc: "Building, validating and interpreting predictive models of molecular activity."
+      applied: ["Classical QSAR", "3D-QSAR", "Descriptor-based modelling", "Feature selection", "Multiple Linear Regression (MLR)", "Random Forest (RF)", "Support Vector Machines (SVM)", "Artificial Neural Networks (ANN)", "XGBoost", "Applicability Domain assessment", "Y-randomisation", "Internal and external validation", "Scaffold-aware evaluation", "Model interpretability", "Feature importance analysis"]
+      knowledge: ["Dimensionality reduction", "Ensemble learning", "Hyperparameter optimisation"]
+    - id: "E"
+      title: "Pharmacophore modelling"
+      preview: "Hypothesis generation · feature mapping · pharmacophore-based screening"
+      desc: "Ligand-based pharmacophore models used to screen and prioritise compounds."
+      applied: ["Pharmacophore hypothesis generation", "3D pharmacophore modelling", "Hydrogen-bond donor and acceptor features", "Hydrophobic and aromatic features", "Feature mapping and alignment", "Pharmacophore-based virtual screening", "Ligand-based pharmacophore analysis", "Pharmacophore-guided compound prioritisation"]
+      knowledge: ["2D pharmacophore modelling"]
+    - id: "F"
+      title: "Virtual screening and molecular docking"
+      preview: "Ligand- and structure-based screening · docking · interaction profiling"
+      desc: "Screening and ranking compounds against protein targets, followed by molecular dynamics where relevant."
+      applied: ["Ligand-based virtual screening", "Structure-based virtual screening", "Molecular docking", "Binding-site analysis", "Protein–ligand interaction analysis", "Docking pose evaluation", "Molecular interaction profiling", "Docking score interpretation", "Compound ranking and prioritisation", "Molecular dynamics follow-up"]
+      knowledge: ["Consensus-based evaluation"]
+    - id: "G"
+      title: "ADMET and drug-likeness"
+      preview: "Physicochemical profiling · Rule of Five · multi-parameter prioritisation"
+      desc: "Computational property and toxicity assessment used to prioritise candidates (predictions, not measurements)."
+      applied: ["Physicochemical property profiling", "Lipophilicity and solubility assessment", "Drug-likeness evaluation", "Lipinski's Rule of Five", "ADMET assessment", "Toxicity prediction", "Multi-parameter compound prioritisation"]
+      knowledge: ["Medicinal chemistry filters"]
+    - id: "H"
+      title: "Molecular design and lead optimisation"
+      preview: "SAR analysis · scaffold exploration · structure-guided design"
+      desc: "Computational design of derivatives and prioritisation of candidates for follow-up."
+      applied: ["Scaffold exploration", "Structure–activity relationship analysis", "Substructure-based compound modification", "Structure-guided molecular design", "Computational candidate prioritisation"]
+      knowledge: ["Lead optimisation strategies"]
+
+# ---------------- other expertise areas ----------------
+areas:
+  - title: "Computational chemistry and molecular modelling"
+    lead: "Simulation and energetics of proteins, ligands and their complexes."
+    groups:
+      - applied: ["Protein and ligand preparation", "Molecular docking", "Molecular system preparation", "Energy minimisation", "Equilibration and production simulations", "Molecular dynamics simulations", "Trajectory analysis", "Protein structural stability analysis", "Protein–ligand interaction analysis", "Binding free-energy estimation", "MM-PBSA and MM-GBSA", "Per-residue energy decomposition", "Coarse-grained molecular dynamics", "Martini modelling"]
+        knowledge: ["Molecular mechanics", "Molecular geometry optimisation"]
+  - title: "Structural bioinformatics and computational biology"
+    lead: "Protein structure, complexes and interfaces, with omics data in a structural context."
+    groups:
+      - applied: ["Protein structure prediction", "AlphaFold-based modelling", "AlphaFold-Multimer", "Protein–protein interaction analysis", "Antibody structure modelling", "Molecular complex modelling", "HADDOCK-based docking", "Protein interface analysis", "Binding-site characterisation", "Protein language models", "Multi-omics data integration", "RNA-seq data interpretation", "Proteomics data interpretation", "Protein–protein interaction networks", "Cytoscape analysis"]
+        knowledge: ["Structural alignment", "Sequence and structure analysis", "STRING network analysis"]
+  - title: "AI and machine learning for molecular science"
+    lead: "Machine learning as a complementary tool for molecular and structural questions."
+    groups:
+      - applied: ["Classical machine learning", "Supervised learning", "Molecular property prediction", "Graph Neural Networks", "Molecular graph learning", "Protein language models", "Molecular representations and embeddings", "Feature engineering", "Model evaluation and validation", "Model interpretability", "SHAP analysis", "Explainable AI", "AI-assisted compound prioritisation"]
+        knowledge: ["Unsupervised learning"]
+  - title: "Scientific programming and research software"
+    lead: "Python-based, reproducible computational workflows and the tools I use for them."
+    groups:
+      - title: "Programming"
+        applied: ["Python", "R", "Scientific computing", "Data processing and analysis", "Workflow automation", "Data visualisation", "Reproducible computational research"]
+        knowledge: []
+      - title: "Cheminformatics and modelling tools"
+        applied: ["RDKit", "KNIME", "GROMACS", "AMBER", "OpenMM", "Martini", "AutoDock Vina", "GOLD", "AlphaFold", "HADDOCK", "PyMOL"]
+        knowledge: ["PaDEL", "alvaDesc", "NAMD", "GNINA", "smina", "Glide"]
+      - title: "AI and data science"
+        applied: ["PyTorch", "PyTorch Geometric", "scikit-learn", "XGBoost", "SHAP"]
+        knowledge: []
+
+# ---------------- research journey (chronological) ----------------
+journey:
+  - period: "2021 – 2025"
+    title: "PhD — Computational Chemistry"
+    org: "Université Sidi Mohamed Ben Abdellah, Morocco"
+    focus: "JAK3 inhibitor design, QSAR, 3D-QSAR, pharmacophore modelling, virtual screening, docking, molecular dynamics and free-energy analysis."
+  - period: "March 2024 – September 2024"
+    title: "Structural Bioinformatics Research"
+    org: "Université Paris Cité — BFA"
+    focus: "JAK1/JAK3, protein modelling, AlphaFold-Multimer, HADDOCK, molecular dynamics and computational peptide design."
+  - period: "October 2024 – October 2025"
+    title: "Computational Antifungal Drug Discovery"
+    org: "University of Angers — SONAS / IRHS"
+    focus: "Cheminformatics, molecular similarity, target and scaffold analysis, docking, molecular dynamics and ADMET prioritisation."
+    note: "Carried out within a Green Impulse research collaboration associated with the University of Angers / SONAS."
+  - period: "November 2025 – Present"
+    title: "Research Engineer — Computational Antibody Modelling"
+    org: "BioCampus Montpellier — CNRS UAR3426 / INSERM US9"
+    focus: "Computational antibody modelling, AlphaFold-Multimer, HADDOCK, Martini coarse-grained molecular dynamics, protein language models and graph neural networks."
+
+# ---------------- research software ----------------
+software_note: "These tools support computational research and prediction. Their outputs are computational predictions, not experimentally validated biological activity."
+software:
+  - name: "docking-ai"
+    domain: "Cheminformatics & CADD"
+    text: "RDKit graph featurisation, a relational GCN evaluated with scaffold splits, ranked virtual screening with optional AutoDock Vina re-scoring and gradient/occlusion explanations. 28 tests; example labels are synthetic."
+    url: "https://github.com/AbdelmoujoudFaris/docking-ai"
+    link_label: "Repository"
+  - name: "QSAR-IL"
+    domain: "Cheminformatics & QSAR"
+    text: "QSAR workflow for SMILES + IC50 data: RDKit descriptors, Kennard–Stone split, MLR/ANN/RF/SVM models, feature selection, external validation, y-randomisation and applicability domain. Beta tool; the link goes to its demo page."
+    url: "https://frogbiox.com/tools/qsar-il"
+    link_label: "Demo page"
+  - name: "OmicsFusion"
+    domain: "Bioinformatics"
+    text: "Reproducible multi-omics integration framework: Python core with an R bridge, Nextflow workflow, CLI and Streamlit interfaces. CI, Docker and 12 test modules."
+    url: "https://github.com/AbdelmoujoudFaris/OmicsFusion"
+    link_label: "Repository"

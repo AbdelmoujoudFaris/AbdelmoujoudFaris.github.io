@@ -1119,3 +1119,161 @@ html[data-theme="dark"] .pub-link--pdf { color: #6ee7b7; }
   }
   .hero-video__item + .hero-video__item { margin-top: 24px; padding-top: 20px; }
 }
+
+/* ------------------------------ about page: metrics, expertise, journey, software */
+.inner-page__content .about-block { margin-top: 40px; }
+.inner-page__content .about-block:first-child { margin-top: 0; }
+.inner-page__content .about-block h2 { margin-top: 0; }
+.about-lead { margin: 0 0 14px; max-width: 78ch; color: var(--muted); font-size: 0.93rem; line-height: 1.7; }
+
+.about-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.about-metric {
+  padding: 18px 18px 16px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.about-metric__value { display: block; color: var(--text-strong); font-size: 1.9rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+.about-metric__label { display: block; margin-top: 6px; color: var(--muted); font-size: 0.82rem; line-height: 1.4; }
+.about-metric__note { display: block; margin-top: 2px; color: var(--muted-2); font-size: 0.72rem; }
+.about-orcid { margin-top: 14px; }
+
+.about-prose { max-width: 78ch; }
+.inner-page__content .about-prose p { margin: 0 0 16px; }
+.inner-page__content .about-prose p:last-child { margin-bottom: 0; }
+.inner-page__content .about-prose p:first-child { color: var(--text-strong); font-size: 1.04rem; font-weight: 500; }
+
+/* chips: filled = applied, dashed = working knowledge */
+.inner-page__content .xp-legend { display: flex; flex-wrap: wrap; gap: 8px 12px; margin: 0 0 20px; }
+.inner-page__content .xp-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; }
+.xp-chip {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.xp-chip--applied { border-color: var(--accent); background: var(--accent-soft); color: var(--text-strong); }
+.xp-chip--knowledge { border-style: dashed; background: transparent; color: var(--muted); }
+
+.xp {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.inner-page__content .xp__title { margin: 0; font-size: 1.1rem; font-weight: 700; }
+.inner-page__content .xp__sub { margin: 18px 0 0; color: var(--text-strong); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.02em; }
+.xp__lead { margin: 6px 0 0; color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
+.xp__eyebrow { margin: 0 0 6px; color: var(--red); font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.xp-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 16px; align-items: start; }
+
+/* central cheminformatics card: dark navy identity in both themes */
+.xp--core { border-color: rgba(255, 255, 255, 0.14); background: var(--navy); color: #d7e2f0; }
+.xp--core .xp__eyebrow { color: #ff8a97; }
+.inner-page__content .xp--core .xp__title { color: #ffffff; font-size: 1.45rem; }
+.xp--core .xp__lead { max-width: 70ch; color: #b9c9de; }
+.xp--core :focus-visible { outline-color: #9cc4f2; }
+.xp__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px 24px; }
+.xp__tools { display: flex; gap: 8px; }
+.xp__tools button {
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: transparent;
+  color: #e6f0fc;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.xp__tools button:hover { background: rgba(255, 255, 255, 0.1); }
+
+.xp-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 20px; align-items: start; }
+.xp-group { border: 1px solid rgba(255, 255, 255, 0.16); border-radius: var(--radius); background: rgba(255, 255, 255, 0.05); }
+.xp-group[open] { background: rgba(255, 255, 255, 0.08); }
+.xp-group > summary {
+  position: relative;
+  display: block;
+  padding: 14px 44px 14px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+.xp-group > summary::-webkit-details-marker { display: none; }
+.xp-group > summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #b9c9de;
+  border-bottom: 2px solid #b9c9de;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.18s ease;
+}
+.xp-group[open] > summary::after { transform: translateY(-30%) rotate(-135deg); }
+.xp-group__title { display: block; color: #ffffff; font-size: 0.93rem; font-weight: 700; line-height: 1.35; }
+.xp-group__id {
+  display: inline-block;
+  min-width: 22px;
+  margin-right: 8px;
+  padding: 1px 0;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #cfe0f5;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-align: center;
+}
+.xp-group__preview { display: block; margin-top: 4px; color: #a9bbd3; font-size: 0.78rem; line-height: 1.45; }
+.xp-group__body { padding: 0 16px 16px; }
+.xp-group__desc { margin: 0; color: #b9c9de; font-size: 0.83rem; line-height: 1.55; }
+.xp--core .xp-chip { border-color: rgba(255, 255, 255, 0.3); }
+.xp--core .xp-chip--applied { border-color: rgba(111, 168, 232, 0.6); background: rgba(111, 168, 232, 0.18); color: #eaf3ff; }
+.xp--core .xp-chip--knowledge { color: #b9c9de; }
+
+/* research journey */
+.inner-page__content .about-journey { display: grid; gap: 18px; margin: 18px 0 0 6px; padding: 0 0 0 24px; border-left: 2px solid var(--border-strong); }
+.about-journey__item { position: relative; }
+.about-journey__item::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -31px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 2px var(--blue);
+}
+.about-journey__period { margin: 0; color: var(--red); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.inner-page__content .about-journey__title { margin: 3px 0 0; font-size: 1rem; }
+.about-journey__org { margin: 2px 0 0; color: var(--text); font-size: 0.9rem; }
+.about-journey__focus { margin: 6px 0 0; max-width: 78ch; color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
+.about-journey__note { margin: 4px 0 0; max-width: 78ch; color: var(--muted-2); font-size: 0.82rem; font-style: italic; }
+
+/* research software */
+.about-software { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 4px; }
+.about-software .project-card { margin: 0; }
+.about-software__link { margin: auto 0 0; padding-top: 14px; }
+.about-software__more { margin-top: 14px; }
+
+@media (max-width: 960px) {
+  .about-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .xp-groups,
+  .xp-grid { grid-template-columns: minmax(0, 1fr); }
+  .about-software { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .xp { padding: 18px; }
+  .about-metric__value { font-size: 1.6rem; }
+  .inner-page__content .about-journey { padding-left: 18px; }
+  .about-journey__item::before { left: -25px; }
+}

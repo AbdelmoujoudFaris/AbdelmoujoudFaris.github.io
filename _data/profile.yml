@@ -80,25 +80,21 @@ research_areas:
     text: "Transcriptomic and proteomic analysis, protein interaction networks and integrated biological data analysis."
 
 about: |
-  I am a computational chemist and cheminformatics scientist with a PhD in
-  Computational Chemistry (Université Sidi Mohamed Ben Abdellah, 2025). My
-  doctoral research focused on JAK3 inhibitor design, combining QSAR and
-  3D-QSAR, pharmacophore modelling, virtual screening, molecular docking,
-  molecular dynamics and MM-PBSA/MM-GBSA free-energy analysis.
+  I am a computational chemist and cheminformatics scientist with a PhD in Computational Chemistry from Université Sidi Mohamed Ben Abdellah (2025).
 
-  I then worked on JAK1/JAK3 structural bioinformatics at Université Paris Cité
-  (AlphaFold-Multimer, HADDOCK, pharmacophore-based peptide design) and on
-  computational antifungal drug discovery at the University of Angers
-  (fingerprint and similarity analysis, docking, molecular dynamics and ADMET
-  prioritisation). Since November 2025 I have been a Research Engineer at
-  BioCampus Montpellier (CNRS UAR3426 / INSERM US9), working on computational
-  antibody modelling with AlphaFold-Multimer, HADDOCK, Martini coarse-grained
-  simulations, protein language models and graph neural networks.
+  My research focuses on applying cheminformatics, molecular modelling, computational chemistry and artificial intelligence to drug discovery and biological research.
 
-  I also write research software in Python, such as docking-ai, QSAR-IL and
-  OmicsFusion. These tools produce computational predictions, not experimental
-  results. I have 17 peer-reviewed articles (11 as first author); see ORCID
-  0000-0003-0781-6523.
+  During my doctoral research, I investigated JAK3 inhibitor design using QSAR and 3D-QSAR modelling, pharmacophore modelling, virtual screening, molecular docking, molecular dynamics and MM-PBSA/MM-GBSA free-energy analysis.
+
+  I subsequently worked on JAK1/JAK3 structural bioinformatics at Université Paris Cité, using AlphaFold-Multimer, HADDOCK, molecular simulations and pharmacophore-based peptide design.
+
+  At the University of Angers, I contributed to computational antifungal drug discovery, combining molecular fingerprints, Tanimoto similarity, target and scaffold similarity analysis, molecular docking, molecular dynamics and ADMET-based compound prioritisation.
+
+  Since November 2025, I have been a Research Engineer at BioCampus Montpellier (CNRS UAR3426 / INSERM US9), working on computational antibody modelling, AlphaFold-Multimer, HADDOCK, Martini coarse-grained simulations, protein language models and graph neural networks.
+
+  Alongside my research, I develop and work with scientific software and computational workflows in Python, including projects such as docking-ai, QSAR-IL and OmicsFusion.
+
+  My work combines chemical knowledge, structural analysis, computational modelling and software engineering to transform research questions into reproducible computational analyses and testable hypotheses.
 
 # ---- Professional experience (verified from the existing CV data) ----
 experience:

@@ -197,6 +197,26 @@
     apply();
   }
 
+  /* ---------------------------- about: expand / collapse expertise ---------------------------- */
+  function initExpertise() {
+    var tools = document.querySelector("[data-xp-tools]");
+    var groups = Array.prototype.slice.call(document.querySelectorAll("details.xp-group"));
+    if (!tools || !groups.length) return;
+
+    function make(label, open) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = label;
+      btn.addEventListener("click", function () {
+        groups.forEach(function (d) { d.open = open; });
+      });
+      tools.appendChild(btn);
+    }
+
+    make("Expand all", true);
+    make("Collapse all", false);
+  }
+
   /* ---------------------------- boot ---------------------------- */
   function boot() {
     initTheme();
@@ -204,6 +224,7 @@
     initCurrentPage();
     initHashScroll();
     initPublications();
+    initExpertise();
   }
 
   if (document.readyState === "loading") {
