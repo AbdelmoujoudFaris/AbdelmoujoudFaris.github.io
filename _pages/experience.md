@@ -4,6 +4,8 @@ title: "Experience"
 eyebrow: "Research appointments"
 description: "Professional and research positions in computational chemistry, structural bioinformatics and machine learning for drug discovery, in chronological order."
 permalink: /experience/
+header:
+  image: profile.jpg
 ---
 
 {% include base_path %}

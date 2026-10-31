@@ -4,6 +4,8 @@ title: "Research"
 eyebrow: "Themes & methods"
 description: "Research themes, scientific questions, computational approaches, molecular modelling, cheminformatics, bioinformatics and AI/ML methods."
 permalink: /research/
+header:
+  image: profile.jpg
 ---
 
 {% include base_path %}
@@ -22,7 +24,7 @@ permalink: /research/
     <li>How do protein–ligand and protein–protein interfaces encode binding affinity and selectivity, and how can that be modelled computationally?</li>
     <li>How can molecular flexibility and conformational landscapes be summarised into interpretable free-energy and structural descriptions?</li>
     <li>How do cheminformatics descriptors and learned molecular representations complement physics-based scoring?</li>
-    <li>How can transcriptomic and multi-omics data be integrated to prioritise targets and contextualise compound activity?</li>
+    <li>How can transcriptomic and proteomic data be combined with structural modelling to understand kinase signalling and inform target selection?</li>
   </ul>
 </div>
 
@@ -46,7 +48,7 @@ permalink: /research/
   </div>
   <div class="method">
     <dt>Omics &amp; biological networks</dt>
-    <dd>RNA-seq differential expression (DESeq2, edgeR, limma), pathway and gene-set enrichment, co-expression/network analysis and multi-omics integration.</dd>
+    <dd>RNA-seq differential expression (DESeq2, limma), protein interaction networks (Cytoscape) and multi-omics integration.</dd>
   </div>
 </dl>
 

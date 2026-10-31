@@ -25,7 +25,7 @@ nav:
   - id: experience
     label: "Experience"
     url: "/experience/"
-    desc: "Research appointments in France and Morocco."
+    desc: "Research appointments in France."
   - id: skills
     label: "Skills"
     url: "/skills/"
@@ -35,102 +35,99 @@ nav:
     url: "/contact/"
     desc: "Email, profiles and collaboration enquiries."
 
-headline: "Computational Chemistry × Molecular AI"
-role: "Computational Chemist · Cheminformatician · Bioinformatician · AI Research Engineer"
+headline: "Cheminformatics × Computational Chemistry"
+role: "Cheminformatics & Computational Chemistry Scientist"
 
 intro: >
-  I develop computational and AI-driven approaches to molecular modelling,
-  structural bioinformatics and drug discovery, combining scientific insight
-  with reproducible research and software engineering.
+  PhD scientist in cheminformatics and computational chemistry: CADD, molecular
+  modelling, structural bioinformatics and AI/ML for drug discovery, with
+  reproducible research software.
 
 hero_secondary: >
-  My work moves between scales — from multi-omics data and protein structures
-  to ligand–protein interactions and candidate molecules — using molecular
-  dynamics, docking, cheminformatics and machine learning, and building the
-  reproducible Python/R pipelines that carry the analysis from raw data to
-  interpretable results.
+  My work moves between scales, from protein structures and protein-ligand
+  interactions to candidate molecules, using QSAR, docking, molecular dynamics,
+  cheminformatics and machine learning, and building the reproducible Python
+  pipelines that carry the analysis from raw data to interpretable results.
 
 research_summary: >
-  My research sits at the intersection of computational chemistry,
-  cheminformatics, structural bioinformatics and artificial intelligence. I use
-  ligand- and structure-based methods to study protein–ligand recognition,
-  molecular flexibility and binding energetics, and I apply machine learning to
-  molecular property prediction and biological data analysis. A recurring theme
-  is JAK-family kinase inhibitor design and protein–protein interface analysis,
-  alongside transcriptomic and multi-omics workflows.
+  My research applies computational chemistry, cheminformatics and molecular
+  modelling to drug discovery, with structural bioinformatics and machine
+  learning as complementary tools. A recurring theme is JAK-family kinase
+  inhibitor design, from QSAR and pharmacophore screening to docking, molecular
+  dynamics and binding free-energy analysis, extended to protein-protein and
+  antibody-antigen modelling.
 
 research_interests:
-  - "Computational Drug Discovery"
+  - "Computer-Aided Drug Discovery"
   - "Cheminformatics & QSAR"
-  - "Molecular Dynamics"
+  - "Molecular Modelling & Dynamics"
   - "Structural Bioinformatics"
-  - "Machine Learning & GNNs"
+  - "AI/ML for Drug Discovery"
+  - "Scientific Software"
   - "Protein Language Models"
   - "Multi-Omics"
-  - "Scientific Software"
 
 research_areas:
-  - title: "Computer-Aided Drug Design"
-    text: "Structure- and ligand-based virtual screening, molecular docking, pharmacophore modelling and ADMET filtering for early hit and lead discovery."
-  - title: "Molecular Dynamics & Energetics"
-    text: "GROMACS/AMBER simulations, trajectory analysis, PCA free-energy landscapes, structural clustering and MM-PBSA/MM-GBSA binding free-energy estimates."
+  - title: "Computer-Aided Drug Discovery"
+    text: "QSAR and 3D-QSAR, molecular descriptors and fingerprints, pharmacophore modelling, virtual screening, molecular docking and ADMET prioritisation."
+  - title: "Molecular Modelling & Computational Chemistry"
+    text: "Molecular dynamics with GROMACS, AMBER and OpenMM, Martini coarse-grained simulations and MM-PBSA/MM-GBSA binding free-energy analysis."
   - title: "Structural Bioinformatics"
-    text: "Protein structure modelling, protein–protein complex analysis, residue-level interaction mapping and free-energy decomposition of interfaces."
-  - title: "Cheminformatics & QSAR"
-    text: "RDKit-based descriptor and fingerprint pipelines, 2D/3D QSAR, model validation and structure–activity interpretation."
-  - title: "Machine Learning for Molecules"
-    text: "Graph neural networks, molecular representation learning, model interpretation with SHAP and ML-assisted scoring and ranking workflows."
-  - title: "Omics & Biological Networks"
-    text: "RNA-seq differential expression, pathway and gene-set enrichment, co-expression/network analysis and multi-omics integration."
+    text: "AlphaFold and AlphaFold-Multimer, HADDOCK, protein-protein interactions and antibody-antigen modelling."
+  - title: "AI/ML for Drug Discovery"
+    text: "Graph neural networks, protein language models, molecular representations and embeddings, explainable AI (SHAP), with PyTorch and scikit-learn."
+  - title: "Multi-Omics & Computational Biology"
+    text: "Transcriptomic and proteomic analysis, protein interaction networks and integrated biological data analysis."
 
 about: |
-  I am a computational scientist and research engineer with a PhD in Physical
-  Chemistry. My work bridges molecular modelling and data-driven biology:
-  on one side docking, molecular dynamics, free-energy analysis and structural
-  bioinformatics; on the other, cheminformatics, machine learning and multi-omics
-  data analysis.
+  I am a computational chemist and cheminformatics scientist with a PhD in
+  Computational Chemistry (Université Sidi Mohamed Ben Abdellah, 2025). My
+  doctoral research focused on JAK3 inhibitor design, combining QSAR and
+  3D-QSAR, pharmacophore modelling, virtual screening, molecular docking,
+  molecular dynamics and MM-PBSA/MM-GBSA free-energy analysis.
 
-  I build the software behind the science — reproducible Python and R pipelines,
-  scientific tools and automated analyses — and I care about making computational
-  results traceable, documented and reusable. I work with experimental and
-  industrial partners to turn structural and biological questions into testable
-  computational hypotheses.
+  I then worked on JAK1/JAK3 structural bioinformatics at Université Paris Cité
+  (AlphaFold-Multimer, HADDOCK, pharmacophore-based peptide design) and on
+  computational antifungal drug discovery at the University of Angers
+  (fingerprint and similarity analysis, docking, molecular dynamics and ADMET
+  prioritisation). Since November 2025 I have been a Research Engineer at
+  BioCampus Montpellier (CNRS UAR3426 / INSERM US9), working on computational
+  antibody modelling with AlphaFold-Multimer, HADDOCK, Martini coarse-grained
+  simulations, protein language models and graph neural networks.
+
+  I also write research software in Python, such as docking-ai, QSAR-IL and
+  OmicsFusion. These tools produce computational predictions, not experimental
+  results. I have 17 peer-reviewed articles (11 as first author); see ORCID
+  0000-0003-0781-6523.
 
 # ---- Professional experience (verified from the existing CV data) ----
 experience:
-  - role: "ML Scientist — Structure-Driven Molecular AI & Drug Design"
-    org: "CNRS / Université de Montpellier — BIOCAMPUS (BacFly)"
-    period: "Oct. 2025 – Present"
+  - role: "Research Engineer"
+    org: "BioCampus Montpellier — CNRS UAR3426 / INSERM US9"
+    period: "Nov. 2025 – Present"
     logo: "/images/logos/biocampus-montpellier.png"
     points:
-      - "Machine-learning and structure-based approaches for molecular AI and drug design."
-      - "Structural modelling, interaction analysis and computational workflows for protein targets."
-      - "RNA-seq differential expression and pathway analysis supporting target prioritisation."
-  - role: "Computational Chemist — QSAR, Docking & ML-Validated Lead Discovery"
-    org: "Université d'Angers — SONAS · Industry partner: Green Impulse"
-    period: "2024 – 2025 (13 months)"
+      - "Computational modelling of tetraspecific anti-CD20/CD5 antibody formats."
+      - "Antibody–antigen complex modelling with AlphaFold-Multimer and HADDOCK; Martini coarse-grained molecular dynamics."
+      - "ESM-2 protein language-model embeddings and graph neural networks (PyTorch Geometric), with SHAP for model interpretability."
+      - "Python and PyTorch tools and automated computational modelling workflows."
+  - role: "Researcher"
+    org: "Université d'Angers — SONAS / IRHS"
+    period: "Oct. 2024 – Oct. 2025"
     logo: "/images/logos/sonas-angers.png"
     points:
-      - "QSAR modelling, molecular docking and virtual screening for lead discovery."
-      - "Machine-learning validation of computational hits with an industrial partner."
-      - "RNA-seq differential expression analysis to contextualise compound activity."
-  - role: "Computational Biologist — Protein–Ligand Design & Free Energy"
+      - "Computational antifungal drug discovery and cheminformatics, carried out within a Green Impulse research collaboration associated with the University of Angers / SONAS."
+      - "Molecular fingerprints with RDKit, Tanimoto similarity, and target and scaffold similarity analysis; comparison with FDA-approved compounds."
+      - "Molecular docking and molecular dynamics."
+      - "ADMET and toxicity-based prioritisation of candidate compounds."
+  - role: "Researcher"
     org: "CNRS / Université Paris Cité — Unité BFA (CNRS UMR 8251)"
-    period: "2024 (6 months)"
+    period: "Mar. 2024 – Sep. 2024"
     logo: "/images/logos/bfa-paris-cite.png"
     points:
-      - "Protein–ligand modelling and binding free-energy analysis."
-      - "Structural and dynamic analysis of molecular complexes."
-      - "RNA-seq differential expression and enrichment analysis of molecular complexes."
-  - role: "PhD Researcher — Machine Learning for Drug Discovery"
-    org: "Université Sidi Mohamed Ben Abdellah — Laboratory LIMAS, Morocco"
-    period: "2021 – 2025"
-    logo: "/images/logos/fsdm-usmba.png"
-    points:
-      - "QSAR 2D/3D, graph neural networks, GOLD/Vina docking, MD (GROMACS/AMBER), MM-GBSA."
-      - "Peer-reviewed publications (see Publications) and 128 h/year teaching."
-      - "Independent HPC/Slurm use for simulation and modelling workflows."
-      - "RNA-seq differential expression, pathway enrichment and co-expression analysis."
+      - "JAK1/JAK3 computational and structural bioinformatics research, including analysis of synovial RNA-seq and proteomics data."
+      - "Protein–protein interaction modelling with AlphaFold-Multimer and HADDOCK; molecular dynamics with MM-GBSA and residue-level interaction analysis."
+      - "Python tools for pharmacophore feature extraction and peptide identification; pharmacophore-based peptide discovery and design."
 
 education:
   - degree: "PhD, Computational Chemistry — ML & Structure-Based Drug Design"
@@ -148,70 +145,73 @@ education:
 
 # ---- Public repositories (descriptions taken from each repository README) ----
 projects:
+  - name: "docking-ai"
+    description: "RDKit graph featurisation, a relational GCN evaluated with scaffold splits, ranked virtual screening with optional AutoDock Vina re-scoring and gradient/occlusion explanations. 28 tests; example labels are synthetic."
+    domain: "Cheminformatics & CADD"
+    tags: ["RDKit", "GNN", "AutoDock Vina"]
+    url: "https://github.com/AbdelmoujoudFaris/docking-ai"
+  - name: "QSAR-IL"
+    description: "QSAR workflow for SMILES + IC50 data: RDKit descriptors, Kennard–Stone split, MLR/ANN/RF/SVM models, feature selection, external validation, y-randomisation and applicability domain. 13 backend test modules. Beta tool; link goes to its demo page."
+    domain: "Cheminformatics & QSAR"
+    tags: ["QSAR", "RDKit", "scikit-learn"]
+    url: "https://frogbiox.com/tools/qsar-il"
+  - name: "OmicsFusion"
+    description: "Reproducible multi-omics integration framework: Python core with an R bridge, Nextflow workflow, YAML configuration, CLI and Streamlit interfaces. CI, Docker and 12 test modules."
+    domain: "Bioinformatics"
+    tags: ["Python", "Nextflow", "Docker"]
+    url: "https://github.com/AbdelmoujoudFaris/OmicsFusion"
   - name: "BioForge"
-    description: "Modular, containerised platform for AI-native drug repurposing and de novo design: from a PDB ID, UniProt accession or raw sequence through structure resolution and generative design."
-    domain: "AI Drug Discovery"
+    description: "Research-stage framework for pocket-conditioned molecular generation and in silico triage (FastAPI microservices; includes the PharmaForge diffusion engine). No checkpoint trained on real binding data; not experimentally validated."
+    domain: "AI Drug Discovery (research-stage)"
     tags: ["Python", "Microservices", "Generative Design"]
     url: "https://github.com/AbdelmoujoudFaris/BioForge"
   - name: "InterfaceShapeAI (DLPP)"
-    description: "Research framework testing whether protein–protein interface geometry and local topology encode structural motifs and molecular function, using deep learning on 3D shape representations."
+    description: "Research framework (v0.1/v0.2) testing whether protein–protein interface geometry and local topology encode structural motifs and molecular function, using 3D deep learning on voxelised interfaces."
     domain: "Structural Bioinformatics"
     tags: ["Python", "Deep Learning", "Protein Interfaces"]
     url: "https://github.com/AbdelmoujoudFaris/DLPP"
   - name: "EnhancoDNA"
-    description: "Platform for studying transcription-factor cooperativity and DNA-mediated allostery by combining deep learning, molecular dynamics and AI-assisted structural analysis."
+    description: "Research platform for studying transcription-factor cooperativity and DNA-mediated allostery by combining deep learning, molecular dynamics and AI-assisted structural analysis."
     domain: "Structural Biology"
     tags: ["Python", "MD", "Deep Learning"]
     url: "https://github.com/AbdelmoujoudFaris/EnhancoDNA"
-  - name: "OmicsFusion"
-    description: "Reproducible multi-omics platform integrating transcriptomics, proteomics, metabolomics, microbiome and clinical tables into interpretable biological results."
-    domain: "Bioinformatics"
-    tags: ["Python", "Multi-Omics", "pandas/scikit-learn"]
-    url: "https://github.com/AbdelmoujoudFaris/OmicsFusion"
   - name: "PMAtlas"
-    description: "Turns a molecular-dynamics trajectory into an explorable 3D map of conformational states and transitions instead of a linear movie."
+    description: "Turns a molecular-dynamics trajectory into an explorable 3D map of conformational states and transitions. Demo data are synthetic."
     domain: "Molecular Dynamics"
     tags: ["Python", "MD Trajectories", "Visualisation"]
     url: "https://github.com/AbdelmoujoudFaris/PMAtlas"
-  - name: "ADMET Analyzer"
-    description: "Desktop GUI for rapid ADMET profiling of drug candidates, with 2D molecular structure visualisation and publication-quality figure output."
-    domain: "Cheminformatics"
-    tags: ["Python", "ADMET", "RDKit"]
-    url: "https://github.com/AbdelmoujoudFaris/ADMET_Analyzer"
+  - name: "RDKit & Advanced Python"
+    description: "Educational notebook lab introducing advanced Python and the RDKit cheminformatics toolkit, from object-oriented programming to molecular workflows."
+    domain: "Educational resource"
+    tags: ["Jupyter", "RDKit", "Python"]
+    url: "https://github.com/AbdelmoujoudFaris/Rdkit-and-advanced-Python"
   - name: "Multi-Omics Dataset AI Finder"
-    description: "Streamlit application that searches GEO, ArrayExpress, PRIDE, MetaboLights and TCGA/cBioPortal for real, verifiable public datasets matching a biological question."
+    description: "Streamlit application that searches GEO, ArrayExpress, PRIDE, MetaboLights and TCGA/cBioPortal for public datasets matching a biological question. Requires an Anthropic API key."
     domain: "Scientific AI"
     tags: ["Streamlit", "LLM Tools", "Data Discovery"]
     url: "https://github.com/AbdelmoujoudFaris/Multi-Omics-Dataset-AI-Finder"
-  - name: "docking-ai"
-    description: "Single local pipeline from SMILES to docking pose: RDKit molecular graphs, GNN property prediction, ranking and AutoDock Vina integration."
-    domain: "Molecular AI"
-    tags: ["RDKit", "GNN", "AutoDock Vina"]
-    url: "https://github.com/AbdelmoujoudFaris/docking-ai"
+  - name: "ADMET Analyzer"
+    description: "Desktop GUI for rule-based drug-likeness and ADMET property profiling (Lipinski, Veber, Ghose, QED) with 2D structure plots; not a trained prediction model."
+    domain: "Cheminformatics"
+    tags: ["Python", "ADMET", "RDKit"]
+    url: "https://github.com/AbdelmoujoudFaris/ADMET_Analyzer"
   - name: "Free-Energy Landscape & Structural Clustering"
     description: "PCA-based free-energy landscape construction and structural clustering of molecular-dynamics trajectories, with a companion PCA analysis notebook."
     domain: "Molecular Dynamics"
     tags: ["PCA", "Clustering", "Trajectory Analysis"]
     url: "https://github.com/AbdelmoujoudFaris/Free-energy-landscape-principal-component-analysis-and-structural-clustering"
-  - name: "RDKit & Advanced Python"
-    description: "Teaching-oriented notebook lab introducing advanced Python and the RDKit cheminformatics toolkit, from object-oriented programming to molecular workflows."
-    domain: "Cheminformatics"
-    tags: ["Jupyter", "RDKit", "Teaching"]
-    url: "https://github.com/AbdelmoujoudFaris/Rdkit-and-advanced-Python"
 
 # ---- Skills (only technologies evidenced by the CV / public projects) ----
 skills:
-  - category: "Computational Chemistry"
-    items: ["Molecular Docking", "Virtual Screening", "Pharmacophore Modelling", "3D-QSAR", "ADMET Prediction", "Molecular Descriptors", "Structure-Based Design"]
-  - category: "Molecular Dynamics"
-    items: ["GROMACS", "AMBER", "OpenMM", "Desmond", "MM-PBSA/MM-GBSA", "RMSD/RMSF", "PCA & Free-Energy Landscapes", "Structural Clustering"]
-  - category: "Structural Bioinformatics"
-    items: ["AlphaFold2", "Protein–Protein Interfaces", "Homology Modelling", "PyMOL", "Interaction Analysis", "Free-Energy Decomposition"]
   - category: "Cheminformatics"
-    items: ["RDKit", "Molecular Fingerprints", "QSAR/QSPR", "LigandScout", "AutoDock Vina", "GOLD", "DiffDock"]
+    items: ["RDKit", "KNIME", "Molecular Descriptors", "Molecular Fingerprints", "QSAR/QSPR (2D/3D)", "Virtual Screening", "Pharmacophore Modelling", "ADMET Prediction"]
+  - category: "Computational Chemistry"
+    items: ["Molecular Docking", "AutoDock Vina", "GOLD", "Molecular Dynamics", "GROMACS", "AMBER", "OpenMM", "MM-PBSA/MM-GBSA", "PCA & Free-Energy Landscapes", "Structure-Based Design"]
+  - category: "Structural Bioinformatics"
+    items: ["AlphaFold2 / AlphaFold-Multimer", "HADDOCK", "Protein–Protein Interfaces", "Homology Modelling", "PyMOL", "Interaction Analysis", "Free-Energy Decomposition"]
   - category: "AI & Machine Learning"
-    items: ["PyTorch", "PyTorch Geometric", "scikit-learn", "XGBoost", "Graph Neural Networks", "SHAP", "Protein Language Models", "LLM-assisted workflows"]
+    items: ["PyTorch", "PyTorch Geometric", "scikit-learn", "XGBoost", "Graph Neural Networks", "SHAP", "Protein Language Models (ESM-2)", "LLM-assisted workflows"]
   - category: "Bioinformatics"
-    items: ["RNA-seq", "DESeq2", "edgeR", "limma", "GSEA", "clusterProfiler", "Cytoscape", "Multi-omics integration"]
-  - category: "Scientific Software"
-    items: ["Python", "R", "Bash", "Git/GitHub", "Docker", "Conda", "Snakemake", "Linux/HPC & Slurm", "Jupyter", "R Shiny"]
+    items: ["RNA-seq", "DESeq2", "limma", "Cytoscape", "Multi-omics integration"]
+  - category: "Scientific Computing"
+    items: ["Python", "R", "Bash", "Git/GitHub", "Docker", "Nextflow", "Conda", "Linux/HPC & Slurm", "Jupyter", "R Shiny"]

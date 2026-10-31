@@ -10,9 +10,8 @@ title: "Abdelmoujoud Faris"
 title_separator: "-"
 name: &name "Abdelmoujoud Faris"
 description: &description >
-  PhD in Physical Chemistry (Molecular Modeling & Cheminformatics).
-  Research Engineer in Bioinformatics at CNRS / Université de Montpellier – BIOCAMPUS.
-  Specialised in QSAR/CADD, structural bioinformatics, molecular dynamics, and AI-driven drug discovery.
+  PhD in Computational Chemistry. Research Engineer at BioCampus Montpellier (CNRS / INSERM).
+  Cheminformatics, CADD and molecular modelling, structural bioinformatics and AI/ML for drug discovery.
 url: "https://AbdelmoujoudFaris.github.io"
 baseurl: ""
 repository: "AbdelmoujoudFaris/AbdelmoujoudFaris.github.io"
@@ -24,12 +23,12 @@ author:
   name: "Abdelmoujoud Faris"
   pronouns: "he/him"
   bio: >
-    PhD · Computational Chemist & Bioinformatician.
-    Research Engineer in Bioinformatics at CNRS / Université de Montpellier – BIOCAMPUS.
-    Working at the intersection of molecular modelling, cheminformatics, and AI for drug discovery.
+    PhD · Cheminformatics & Computational Chemistry Scientist.
+    Research Engineer at BioCampus Montpellier (CNRS / INSERM).
+    Working at the intersection of molecular modelling, cheminformatics, structural bioinformatics and AI for drug discovery.
     17 peer-reviewed articles with DOIs verified against Crossref and Unpaywall.
   location: "Montpellier, France"
-  employer: "CNRS / Université de Montpellier – BIOCAMPUS"
+  employer: "BioCampus Montpellier (CNRS UAR3426 / INSERM US9)"
   uri: "https://AbdelmoujoudFaris.github.io"
   email: "abdelmoujoud.faris@usmba.ac.ma"
 

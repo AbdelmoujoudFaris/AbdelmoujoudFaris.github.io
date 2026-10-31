@@ -449,9 +449,9 @@ html[data-theme="dark"] .icon-btn__moon { display: block; }
 .btn--ghost {
   background: var(--surface);
   border-color: var(--border-strong);
-  color: var(--text-strong);
+  color: var(--text-strong) !important;
 }
-.btn--ghost:hover { border-color: var(--blue); color: var(--blue); text-decoration: none; }
+.btn--ghost:hover { border-color: var(--blue); color: var(--blue) !important; text-decoration: none; }
 
 .hero__facts {
   display: grid;
@@ -1024,6 +1024,7 @@ html[data-theme="dark"] .pub-link--pdf { color: #6ee7b7; }
   .skills-grid { grid-template-columns: minmax(0, 1fr); }
   .pub-item { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 18px; }
   .pub-toolbar { grid-template-columns: minmax(0, 1fr); }
+  input.pub-toolbar__search { box-sizing: border-box; }
   .contact { padding: 22px; }
   .footer-grid { flex-direction: column; align-items: flex-start; }
   .section__head { flex-direction: column; align-items: flex-start; }

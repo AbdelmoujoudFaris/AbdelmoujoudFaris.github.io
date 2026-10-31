@@ -1,16 +1,18 @@
 ---
 layout: inner
 title: "Curriculum Vitae"
-eyebrow: "Computational chemistry · Molecular AI"
-description: "Full curriculum vitae: education, research experience, teaching, peer-reviewed publications, languages and references."
+eyebrow: "Cheminformatics · Computational chemistry"
+description: "Full curriculum vitae: education, research experience, peer-reviewed publications, languages and references."
 permalink: /cv/
 redirect_from:
   - /resume
+header:
+  image: profile.jpg
 ---
 
 {% include base_path %}
 
-Computational chemist and research engineer working at the intersection of molecular modelling, cheminformatics, structural bioinformatics and machine learning. PhD in Physical Chemistry (Université Sidi Mohamed Ben Abdellah). Currently ML Scientist at CNRS / Université de Montpellier – BIOCAMPUS.
+Cheminformatics and computational chemistry scientist working at the intersection of molecular modelling, structural bioinformatics and machine learning for drug discovery. PhD in Computational Chemistry (Université Sidi Mohamed Ben Abdellah). Currently Research Engineer at BioCampus Montpellier (CNRS UAR3426 / INSERM US9).
 
 ## Education
 
@@ -34,11 +36,6 @@ Faculté des Sciences, Université Ibn Zohr, Agadir · 2014–2018
 {% endfor %}
 {% endif %}
 {% endfor %}
-
-## Teaching
-
-- **ATER (temporary lecturer), Université Sidi Mohamed Ben Abdellah** · 2021–2024 · 128 h/year
-- Theoretical chemistry, crystallography, atomic structure and electrochemistry at undergraduate level.
 
 ## Publications
 
