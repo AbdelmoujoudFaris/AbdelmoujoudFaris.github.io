@@ -2,8 +2,7 @@
 <section class="section" id="highlights" aria-labelledby="home-highlights">
   <div class="container">
     <p class="section__eyebrow">Selected research</p>
-    <h2 class="section__title" id="home-highlights">Publications and research software</h2>
-    <p class="section__lead">{{ hm.highlights_lead }}</p>
+    <h2 class="section__title" id="home-highlights">Selected publications and software</h2>
     <div class="home-highlights">
       {% for doi in hm.highlight_dois %}
         {% for pub in site.data.publications.publications %}
