@@ -266,6 +266,13 @@
     });
   }
 
+  /* ---------------------------- home: muted autoplay of the hero video ---------------------------- */
+  function initHeroVideo() {
+    var frame = document.querySelector("iframe[data-autoplay-src]");
+    if (!frame || prefersReduced) return;
+    frame.src = frame.getAttribute("data-autoplay-src");
+  }
+
   /* ---------------------------- boot ---------------------------- */
   function boot() {
     initTheme();
@@ -275,6 +282,7 @@
     initPublications();
     initExpertise();
     initVideoModal();
+    initHeroVideo();
   }
 
   if (document.readyState === "loading") {
