@@ -1,6 +1,20 @@
+{% if page.layout == "landing" %}
+<section class="home-collab" aria-labelledby="home-collab-title">
+  <div class="container home-collab__inner">
+    <div>
+      <h2 class="home-collab__title" id="home-collab-title">Open to collaboration</h2>
+      <p class="home-collab__text">Research and engineering roles in cheminformatics, CADD and molecular modelling, and academic or industry collaborations.</p>
+    </div>
+    <div class="home-collab__actions">
+      <a class="btn btn--red" href="mailto:{{ site.author.email }}">Get in touch</a>
+      <a class="btn btn--ghost" href="{{ '/cv/' | relative_url }}">View My CV</a>
+    </div>
+  </div>
+</section>
+{% endif %}
 <footer class="lp-footer site-footer">
   <div class="container footer-grid">
-    <p class="footer-grid__c">&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. Computational chemistry &amp; molecular AI.</p>
+    <p class="footer-grid__c">&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. Cheminformatics &amp; computational chemistry.</p>
     <nav class="footer-nav" aria-label="Footer">
       <ul class="footer-links">
         {% for item in site.data.profile.nav %}

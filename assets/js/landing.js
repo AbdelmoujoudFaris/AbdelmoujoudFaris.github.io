@@ -217,6 +217,55 @@
     make("Collapse all", false);
   }
 
+  /* ---------------------------- home: video modal ---------------------------- */
+  function initVideoModal() {
+    var links = Array.prototype.slice.call(document.querySelectorAll("[data-video]"));
+    if (!links.length || typeof HTMLDialogElement === "undefined") return;
+
+    var dialog = document.createElement("dialog");
+    dialog.className = "video-modal";
+    dialog.setAttribute("aria-label", "Video player");
+    var close = document.createElement("button");
+    close.type = "button";
+    close.className = "video-modal__close";
+    close.setAttribute("aria-label", "Close video");
+    close.innerHTML = "&times;";
+    var frame = document.createElement("div");
+    frame.className = "video-modal__frame";
+    dialog.appendChild(close);
+    dialog.appendChild(frame);
+    document.body.appendChild(dialog);
+
+    function open(link, id) {
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+      iframe.title = link.getAttribute("aria-label").replace("Play video: ", "");
+      iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      iframe.allowFullscreen = true;
+      frame.appendChild(iframe);
+      dialog.showModal();
+    }
+
+    function shut() {
+      if (dialog.open) dialog.close();
+    }
+
+    dialog.addEventListener("close", function () { frame.innerHTML = ""; });
+    close.addEventListener("click", shut);
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) shut();
+    });
+
+    links.forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        if (event.metaKey || event.ctrlKey || event.shiftKey) return;
+        event.preventDefault();
+        open(link, link.getAttribute("data-video"));
+      });
+    });
+  }
+
   /* ---------------------------- boot ---------------------------- */
   function boot() {
     initTheme();
@@ -225,6 +274,7 @@
     initHashScroll();
     initPublications();
     initExpertise();
+    initVideoModal();
   }
 
   if (document.readyState === "loading") {

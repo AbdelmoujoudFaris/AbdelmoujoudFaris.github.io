@@ -1,0 +1,21 @@
+{% assign hm = site.data.home %}
+<section class="section" id="expertise" aria-labelledby="home-expertise">
+  <div class="container">
+    <p class="section__eyebrow">Research expertise</p>
+    <h2 class="section__title" id="home-expertise">Cheminformatics at the centre, with complementary computational methods</h2>
+    <p class="section__lead">{{ hm.pillars_lead }}</p>
+    <div class="home-pillars">
+      {% for pl in hm.pillars %}
+        <article class="home-pillar{% if pl.core %} home-pillar--core{% endif %}">
+          {% if pl.badge %}<p class="home-pillar__badge">{{ pl.badge }}</p>{% endif %}
+          <h3 class="home-pillar__title">{{ pl.title }}</h3>
+          <p class="home-pillar__text">{{ pl.text }}</p>
+          <ul class="home-pillar__chips" aria-label="Examples">
+            {% for c in pl.chips %}<li>{{ c }}</li>{% endfor %}
+          </ul>
+        </article>
+      {% endfor %}
+    </div>
+    <p class="section__more"><a class="text-link" href="{{ '/about/' | relative_url }}">Full expertise and research journey &rarr;</a></p>
+  </div>
+</section>

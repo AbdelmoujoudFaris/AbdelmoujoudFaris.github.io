@@ -1,0 +1,32 @@
+{% assign hm = site.data.home %}
+<section class="section" id="highlights" aria-labelledby="home-highlights">
+  <div class="container">
+    <p class="section__eyebrow">Selected research</p>
+    <h2 class="section__title" id="home-highlights">Publications and research software</h2>
+    <p class="section__lead">{{ hm.highlights_lead }}</p>
+    <div class="home-highlights">
+      {% for doi in hm.highlight_dois %}
+        {% for pub in site.data.publications.publications %}
+          {% if pub.doi == doi %}
+            <article class="home-hl">
+              <p class="home-hl__meta">{{ pub.year }} &middot; {{ pub.journal }}</p>
+              <h3 class="home-hl__title"><a href="{{ pub.publisher_url | default: pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a></h3>
+              <p class="home-hl__cat">{{ pub.category }}</p>
+            </article>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+      {% for s in site.data.about.software limit:1 %}
+        <article class="home-hl home-hl--software">
+          <p class="home-hl__meta">Research software &middot; {{ s.domain }}</p>
+          <h3 class="home-hl__title"><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a></h3>
+          <p class="home-hl__cat">Computational predictions, not experimental results.</p>
+        </article>
+      {% endfor %}
+    </div>
+    <p class="section__more">
+      <a class="btn btn--primary" href="{{ '/publications/' | relative_url }}">All publications</a>
+      <a class="btn btn--ghost" href="{{ '/projects/' | relative_url }}">All projects</a>
+    </p>
+  </div>
+</section>

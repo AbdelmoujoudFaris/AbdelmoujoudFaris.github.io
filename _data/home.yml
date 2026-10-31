@@ -1,0 +1,57 @@
+# ============================================================
+#  Homepage content (hero, expertise pillars, videos, highlights)
+#  Metrics come from _data/about.yml; publications from _data/publications.yml.
+# ============================================================
+
+hero:
+  badge: "CNRS UAR3426 / INSERM US9"
+  label: "PhD | Cheminformatics & Computational Chemistry Scientist"
+  title: "PhD Scientist working in Cheminformatics, CADD, Molecular Modelling and Structural Bioinformatics."
+  support: "Combining chemical data analysis, molecular modelling and structural bioinformatics, with AI/ML as complementary tools and reproducible research software as a practical research output."
+  location: "Montpellier, France"
+  role: "Research Engineer"
+  youtube: "https://www.youtube.com/@Bytem2mind"
+
+impact_focus:
+  focus: "Cheminformatics · CADD · Molecular Modelling · Structural Bioinformatics"
+  tools: "Python · RDKit · PyTorch"
+
+pillars_lead: "Cheminformatics is the centre of my work, supported by CADD, computational chemistry and structural bioinformatics, with AI/ML as a complementary set of tools."
+pillars:
+  - title: "Cheminformatics"
+    badge: "Central expertise"
+    core: true
+    text: "Chemical data processing, fingerprints and descriptors, similarity and scaffold analysis, QSAR modelling and ADMET-based compound prioritisation."
+    chips: ["RDKit", "Morgan fingerprints", "Tanimoto", "QSAR", "ADMET"]
+  - title: "Computer-Aided Drug Design"
+    text: "Pharmacophore modelling, virtual screening and molecular docking to prioritise compounds against targets such as the JAK-family kinases."
+    chips: ["Pharmacophores", "Virtual screening", "Docking"]
+  - title: "Computational Chemistry & Molecular Modelling"
+    text: "Molecular dynamics, Martini coarse-grained simulations and MM-PBSA/MM-GBSA binding free-energy analysis."
+    chips: ["GROMACS", "AMBER", "OpenMM"]
+  - title: "Structural Bioinformatics & Computational Biology"
+    text: "AlphaFold-Multimer, HADDOCK, protein–protein and antibody–antigen modelling, with multi-omics data analysed in a structural context."
+    chips: ["AlphaFold-Multimer", "HADDOCK", "Multi-omics"]
+  - title: "AI/ML for Molecular Research"
+    badge: "Complementary"
+    text: "Graph neural networks, protein language models and SHAP explanations, used alongside chemistry- and physics-based methods."
+    chips: ["PyTorch", "PyTorch Geometric", "Protein language models", "SHAP"]
+  - title: "Scientific Programming & Research Software"
+    text: "Python workflows and tested tools such as docking-ai, QSAR-IL and OmicsFusion. Outputs are computational predictions, not experimental results."
+    chips: ["Python", "Nextflow", "Docker"]
+
+videos:
+  - id: "Kz_FsZtslac"
+    title: "About me"
+    channel: "ByteM2Mind"
+    text: "A short introduction to my research in cheminformatics, data analysis, structural biology and drug discovery."
+  - id: "hRqoIWm5o1Q"
+    title: "Tanimoto Coefficient Explained"
+    channel: "ByteM2Mind"
+    text: "Molecular similarity with Python and RDKit: from SMILES to molecular fingerprints to the Tanimoto coefficient."
+
+highlights_lead: "A selection of first-author publications in computer-aided drug design, QSAR and molecular dynamics, with open research software."
+highlight_dois:
+  - "10.1016/j.bioorg.2026.110587"
+  - "10.1080/07391102.2023.2283168"
+  - "10.3389/fmolb.2024.1348277"

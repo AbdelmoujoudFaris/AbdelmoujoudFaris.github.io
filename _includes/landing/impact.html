@@ -1,0 +1,18 @@
+{% assign a = site.data.about %}
+{% assign f = site.data.home.impact_focus %}
+<section class="home-impact" aria-label="Research impact">
+  <div class="container">
+    <ul class="home-impact__list">
+      {% for m in a.metrics %}
+        <li class="home-impact__item">
+          <span class="home-impact__value">{{ m.value }}</span>
+          <span class="home-impact__label">{{ m.label }}{% if m.note %} <span class="home-impact__note">({{ m.note }})</span>{% endif %}</span>
+        </li>
+      {% endfor %}
+      <li class="home-impact__item home-impact__item--wide">
+        <span class="home-impact__value home-impact__value--text">{{ f.tools }}</span>
+        <span class="home-impact__label">Main tools</span>
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Cheminformatics & Computational Chemistry Scientist"
+title: 'PhD \| Cheminformatics & Computational Chemistry Scientist'
 layout: landing
 header:
   image: profile.jpg
