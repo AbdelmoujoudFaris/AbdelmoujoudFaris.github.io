@@ -1090,9 +1090,32 @@ html[data-theme="dark"] .pub-link--pdf { color: #6ee7b7; }
   border: 0;
 }
 
+.hero-video__item { margin-top: 20px; }
+.hero-video__item + .hero-video__item {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.hero-video__meta { margin-top: 16px; }
+.hero-video__title { margin: 0; font-size: 1.15rem; color: var(--text-strong); }
+.hero-video__byline { margin: 4px 0 0; font-size: 0.9rem; color: var(--muted); }
+.hero-video__role { margin: 2px 0 0; font-size: 0.9rem; font-weight: 600; color: var(--text-strong); }
+.hero-video__topics {
+  margin: 10px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.hero-video__quote { margin: 10px 0 0; font-style: italic; color: var(--muted); }
+.hero-video__link { display: inline-block; margin-top: 10px; font-weight: 600; }
+
 @media (max-width: 600px) {
   .hero-video {
     padding: 14px;
     margin-top: 28px;
   }
+  .hero-video__item + .hero-video__item { margin-top: 24px; padding-top: 20px; }
 }
