@@ -3,10 +3,9 @@
 {% assign current_role = site.data.profile.experience[0] %}
 
 <section class="home-hero" id="about" aria-labelledby="home-title">
-  <div class="hero-bg" aria-hidden="true"></div>
   <div class="container home-hero__inner">
     <div class="home-hero__copy">
-      <p class="home-hero__label">{{ h.label }}</p>
+      <p class="home-hero__pill">{{ h.label }}</p>
       <h1 class="home-hero__title" id="home-title">{{ h.title }}</h1>
       <p class="home-hero__support">{{ h.support }}</p>
       <div class="home-hero__actions">
@@ -14,27 +13,9 @@
           Explore My Research
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn--ghost" href="{{ '/projects/' | relative_url }}">View Projects</a>
+        <a class="btn btn--ghost" href="mailto:{{ site.author.email }}">Contact Me</a>
         <a class="btn btn--ghost" href="{{ '/cv/' | relative_url }}">View My CV</a>
       </div>
-    </div>
-
-    <div class="home-hero__pair">
-    <aside class="home-hero__card" aria-label="About Abdelmoujoud Faris">
-      <div class="home-hero__avatar">
-        {% if site.author.avatar contains "://" %}
-          <img src="{{ site.author.avatar }}" alt="Portrait of {{ site.author.name }}" width="168" height="168" fetchpriority="high" />
-        {% else %}
-          <img src="{{ site.author.avatar | prepend: '/images/' | relative_url }}" alt="Portrait of {{ site.author.name }}" width="168" height="168" fetchpriority="high" />
-        {% endif %}
-      </div>
-      <p class="home-hero__name">{{ site.author.name }}<span>, PhD</span></p>
-      <p class="home-hero__role">{{ current_role.role }}</p>
-      <p class="home-hero__org">{{ current_role.org }}</p>
-      <p class="home-hero__loc">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-        {{ h.location }}
-      </p>
       <ul class="home-hero__social" aria-label="Professional profiles">
         {% if site.author.email %}
         <li><a href="mailto:{{ site.author.email }}" aria-label="Email Abdelmoujoud Faris">
@@ -67,23 +48,21 @@
         </a></li>
         {% endif %}
       </ul>
-    </aside>
-    <article class="home-hero__video" aria-label="Featured video: Tanimoto Coefficient Explained">
-      <div class="home-hero__video-frame">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/hRqoIWm5o1Q?rel=0&playsinline=1"
-          data-autoplay-src="https://www.youtube-nocookie.com/embed/hRqoIWm5o1Q?autoplay=1&mute=1&loop=1&playlist=hRqoIWm5o1Q&rel=0&playsinline=1"
-          title="Tanimoto Coefficient Explained: Molecular Similarity with Python and RDKit (ByteM2Mind)"
-          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </div>
-      <div class="home-hero__video-body">
-        <h2 class="home-hero__video-title">Tanimoto Coefficient Explained</h2>
-        <p class="home-hero__video-channel">ByteM2Mind</p>
-        <a class="text-link home-hero__video-link" href="https://www.youtube.com/watch?v=hRqoIWm5o1Q" target="_blank" rel="noopener noreferrer">Watch on YouTube &#8599;</a>
-      </div>
-    </article>
     </div>
+
+    <figure class="home-hero__figure">
+      <div class="home-hero__frame">
+        {% if site.author.avatar contains "://" %}
+          <img src="{{ site.author.avatar }}" alt="Portrait of {{ site.author.name }}" width="400" height="400" fetchpriority="high" />
+        {% else %}
+          <img src="{{ site.author.avatar | prepend: '/images/' | relative_url }}" alt="Portrait of {{ site.author.name }}" width="400" height="400" fetchpriority="high" />
+        {% endif %}
+        <figcaption class="home-hero__loc">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          BioCampus Montpellier, France
+        </figcaption>
+      </div>
+      <p class="home-hero__caption"><strong>{{ site.author.name }}, PhD</strong> &middot; {{ current_role.role }}<br>{{ h.badge }}</p>
+    </figure>
   </div>
 </section>
